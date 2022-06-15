@@ -3,22 +3,23 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { Routes, RouterModule } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
-  { path: 'login',  component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
+  {
+    path: 'auth',
+    component: MainComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'registro', component: RegistroComponent },
+      { path: '**', redirectTo: 'login' }
+    ]
+  }
 ];
 
-
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AuthRoutingModule { }
+export class AuthRoutingModule {}
