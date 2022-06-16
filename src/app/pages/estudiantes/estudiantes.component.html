@@ -1,1 +1,147 @@
-<a class="btn btn-primary" type="button" routerLink="/admin-dashboard/asistencia/estudiante/ver">Ver reporte</a>
+<br>
+<!-- Main content -->
+<section class="content ml-3 mr-2">
+
+    <!-- Default box -->
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title">Selección de listado de estudiantes</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Facultad</option>
+                      <option>Alaska</option>
+                      <option>California</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div>
+
+                  <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-3">
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Carrera</option>
+                      <option>Alaska</option>
+                      <option disabled="disabled">California (disabled)</option>
+                      <option>Delaware</option>
+                      <option>Tennessee</option>
+                      <option>Texas</option>
+                      <option>Washington</option>
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                </div>
+
+                <div class="col-md-3">
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                      <select class="form-control select2" style="width: 100%;">
+                        <option selected="selected">Ciclo y Grupo</option>
+                        <option>Alaska</option>
+                        <option disabled="disabled">California (disabled)</option>
+                        <option>Delaware</option>
+                        <option>Tennessee</option>
+                        <option>Texas</option>
+                        <option>Washington</option>
+                      </select>
+                    </div>
+                    <!-- /.form-group -->
+                  </div>
+                <!-- /.col -->
+
+                <div class="col-md-2 ml-5">
+                    <!-- /.form-group -->
+                      <button type="submit" class="btn btn-secondary">Seleccionar</button>
+
+                    <!-- /.form-group -->
+                  </div>
+              </div>
+
+
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
+
+
+<section class="content ml-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+              
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Estudiantes</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>Codigo</th>
+                                    <th>Fecha asistencia</th>
+                                    <th>Respuesta pregunta</th>
+                                    <th class="text-center">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <td>Gerald Franko</td>
+                                    <td>Sandy Coral</td>
+                                    <td>201912438</td>
+                                    <td>15/06/222</td>
+                                    <td>Si deseo continuar con los talleres</td>
+                                    <td class="project-actions text-right">
+                                        <a class="btn btn-secondary btn-sm mr-4" routerLink="/admin-dashboard/asistencia/estudiante/ver">
+                                            <i class="fas fa-folder">
+                                            </i>
+                                            Ver reporte
+                                        </a>
+                                        <a class="btn btn-secondary btn-sm" href="#">
+                                            <i class="fas fa-pencil-alt">
+                                            </i>
+                                            Asignar
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>

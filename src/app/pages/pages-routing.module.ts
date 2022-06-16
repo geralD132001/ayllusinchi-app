@@ -4,7 +4,6 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { PagesComponent } from './pages.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ProyectoComponent } from './proyecto/proyecto.component';
-import { ProgramaComponent } from './programa/programa.component';
 import { TallerComponent } from './taller/taller.component';
 import { EstudiantesComponent } from './estudiantes/estudiantes.component';
 import { PersonasComponent } from './personas/personas.component';
@@ -17,18 +16,16 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminDashboardComponent },
       { path: 'proyecto', component: ProyectoComponent },
-      { path: 'programa', component: ProgramaComponent },
-      { path: 'taller', component: TallerComponent },
+      { path: 'programa-taller', component: TallerComponent },
       { path: 'asistencia/estudiantes', component: EstudiantesComponent },
       { path: 'asistencia/personas', component: PersonasComponent },
       { path: 'asistencia/estudiante/ver', component: EstudianteComponent },
-
     ],
   },
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class PagesRoutingModule {}

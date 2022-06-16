@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProyectoComponent } from './proyecto/proyecto.component';
-import { ProgramaComponent } from './programa/programa.component';
 import { TallerComponent } from './taller/taller.component';
 import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
@@ -16,7 +15,6 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
   declarations: [
     AdminDashboardComponent,
     ProyectoComponent,
-    ProgramaComponent,
     TallerComponent,
     PagesComponent,
     EstudiantesComponent,
@@ -31,7 +29,6 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
   exports: [
     AdminDashboardComponent,
     ProyectoComponent,
-    ProgramaComponent,
     TallerComponent
   ]
 })
