@@ -17,6 +17,9 @@ import { UserAsistenciaRegisterComponent } from './user-asistencia-register/user
 import { UserAsistenciaRegisterPersonasComponent } from './user-asistencia-register-personas/user-asistencia-register-personas.component';
 import { UserSobreNosotorosComponent } from './user-sobre-nosotoros/user-sobre-nosotoros.component';
 import { UserContactenosComponent } from './user-contactenos/user-contactenos.component';
+import { FormProyectosComponent } from './proyecto/form-proyectos/form-proyectos.component';
+import { ListProyectosComponent } from './list-proyectos/list-proyectos.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,10 +38,13 @@ import { UserContactenosComponent } from './user-contactenos/user-contactenos.co
     UserAsistenciaRegisterComponent,
     UserAsistenciaRegisterPersonasComponent,
     UserSobreNosotorosComponent,
-    UserContactenosComponent
+    UserContactenosComponent,
+    FormProyectosComponent,
+    ListProyectosComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule,
     SharedModule
   ],

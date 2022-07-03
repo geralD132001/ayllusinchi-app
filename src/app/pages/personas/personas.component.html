@@ -12,8 +12,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
+                        <table id="example1" class="table table-striped projects shadow-sm p-3 mb-5 bg-white rounded">
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
@@ -24,15 +24,15 @@
                                     <th>Asistencia</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let persona of personas">
                                 
                                 <tr>
-                                    <td>Gerald Franko</td>
-                                    <td>Sandy Coral</td>
-                                    <td>71882062</td>
-                                    <td>08/06/2001</td>
-                                    <td>M</td>
-                                    <td>939038017</td>
+                                    <td>{{persona.nombres}}</td>
+                                    <td>{{persona.apellidos}}</td>
+                                    <td>{{persona.dni}}</td>
+                                    <td>{{persona.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{persona.sexo}}</td>
+                                    <td>{{persona.numCelular}}</td>
                                     <td class="project-state">
                                         <span class="badge badge-success">Asistió</span>
                                     </td>

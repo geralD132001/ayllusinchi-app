@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Agendar Programa y Taller</h1>
+                <h1>{{title}} Programa y Taller</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -15,122 +15,140 @@
 </section>
 
 <section class="content mr-2">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card-secondary ml-2">
-                <div class="card-header">
-                    <h3 class="card-title">Programa</h3>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="inputName">Nombre</label>
-                        <input type="text" id="inputName" class="form-control">
-                    </div>
+    <form [formGroup]="formGroup">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-secondary ml-2">
+                    <div class="card-header">
+                        <h3 class="card-title">Programa</h3>
 
-
-                </div>
-                <!-- /.card-body -->
-
-            </div>
-            <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-            <div class="card card-secondary ml-2">
-                <div class="card-header">
-                    <h3 class="card-title">Asignar Taller ha: </h3>
-
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected">Escuela Profesional </option>
-                              <option>Alaska</option>
-                              <option>California</option>
-                              <option>Delaware</option>
-                              <option>Tennessee</option>
-                              <option>Texas</option>
-                              <option>Washington</option>
-                            </select>
-                          </div>
-
-                          <!-- /.form-group -->
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
                         </div>
-                        <!-- /.col -->
-                        <div class="col-md-6">
-                          <!-- /.form-group -->
-                          <div class="form-group">
-                            <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected">Ciclo y Grupo</option>
-                              <option>Alaska</option>
-                              <option disabled="disabled">California (disabled)</option>
-                              <option>Delaware</option>
-                              <option>Tennessee</option>
-                              <option>Texas</option>
-                              <option>Washington</option>
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="form-group">
+                            <label for="inputEstimatedDuration">Seleccionar Programa</label>
+                            <select class="form-control" formControlName="idPrograma" >
+                                <h3 class="card-title">Elegir Proyecto</h3>
+                                
+                                <option *ngFor="let programa of programas" [value]="programa.idPrograma">
+                                    {{programa.nombre}}
+                                </option>
                             </select>
-                          </div>
-                          <!-- /.form-group -->
                         </div>
-                        <!-- /.col -->
-                      </div>
 
+
+                    </div>
+                    <!-- /.card-body -->
 
                 </div>
-                <!-- /.card-body -->
-
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-            <div class="card card-secondary ml-2">
-                <div class="card-header">
-                    <h3 class="card-title">Taller</h3>
+            <div class="col-md-6">
+                <div class="card card-secondary ml-2">
+                    <div class="card-header">
+                        <h3 class="card-title">Asignar Taller ha: </h3>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option selected="selected">Carrera</option>
+                                        <option>Alaska</option>
+                                        <option>California</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-6">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <select class="form-control select2" style="width: 100%;">
+                                        <option selected="selected">Ciclo y Grupo</option>
+                                        <option>Alaska</option>
+                                        <option disabled="disabled">California (disabled)</option>
+                                        <option>Delaware</option>
+                                        <option>Tennessee</option>
+                                        <option>Texas</option>
+                                        <option>Washington</option>
+                                    </select>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+
+                    </div>
+                    <!-- /.card-body -->
+
                 </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="inputEstimatedBudget">Descripción</label>
-                        <input type="text" id="inputEstimatedBudget" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEstimatedBudget">Fecha: </label>
-                        <input type="date" id="inputEstimatedBudget" class="form-control">
-                    </div>
-
-
-
-                </div>
-                <!-- /.card-body -->
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
+            <div class="col-md-6">
+                <div class="card card-secondary ml-2">
+                    <div class="card-header">
+                        <h3 class="card-title">Taller</h3>
+
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control">
+                            <span class="form-text text-danger" *ngIf="validaForm('nombre')">Ingrese el nombre del taller</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Descripción</label>
+                            <input type="text" formControlName="descripcion" class="form-control">
+                            <span class="form-text text-danger" *ngIf="validaForm('descripcion')">Ingrese descripción del taller</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Fecha: </label>
+                            <input type="date" formControlName="fechaInicio" class="form-control">
+                        </div>
+
+
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+
+
+
+
         </div>
-
-        
-
-
-    </div>
+    </form>
     <div class="row">
         <div class="col-12">
-            <a href="#" class="btn btn-secondary ml-2">Cancel</a>
-            <input type="submit" value="Guardar" class="btn btn-success float-right ml-2">
+            <button type="button" *ngIf="title === 'Nuevo'" class="btn btn-secondary ml-2" (click)="save(formGroup.value)">Guardar</button>
+            <button type="button" *ngIf="title === 'Modificar'" class="btn btn-secondary ml-2" (click)="update(formGroup.value)">Modificar</button>
+            <button type="button" class="btn btn-secondary ml-2" (click)="activeModal.dismiss('cancel click')">Cancelar</button>
         </div>
     </div>
     <br>

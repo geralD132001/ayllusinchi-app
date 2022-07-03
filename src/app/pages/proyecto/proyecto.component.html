@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Agendar Proyecto</h1>
+                <h1>{{title}} Proyecto</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -15,76 +15,82 @@
 </section>
 
 <section class="content mr-2">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card card-secondary ml-2">
-                <div class="card-header">
-                    <h3 class="card-title">General</h3>
+    <form [formGroup]="formGroup">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-secondary ml-2">
+                    <div class="card-header">
+                        <h3 class="card-title">General</h3>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputName">Nombre</label>
+                            <input type="text" formControlName="nombre" class="form-control">
+                            <span class="form-text text-danger" *ngIf="validaForm('nombre')">Ingrese nombre</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDescription">Reseña</label>
+                            <textarea formControlName="resenia" class="form-control" rows="4"></textarea>
+                            <span class="form-text text-danger" *ngIf="validaForm('resenia')">Ingrese reseña</span>
+                        </div>
+
+                    </div>
+                    <!-- /.card-body -->
+
                 </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="inputName">Nombre</label>
-                        <input type="text" id="inputName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputDescription">Reseña</label>
-                        <textarea id="inputDescription" class="form-control" rows="4"></textarea>
-                    </div>
-
-                </div>
-                <!-- /.card-body -->
-
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-            <div class="card card-secondary ml-2">
-                <div class="card-header">
-                    <h3 class="card-title">Detalles</h3>
+            <div class="col-md-6">
+                <div class="card card-secondary ml-2">
+                    <div class="card-header">
+                        <h3 class="card-title">Detalles</h3>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="inputEstimatedDuration">Donde se desarrolla</label>
-                        <select id="inputStatus" class="form-control custom-select">
-                            <option selected="" disabled="">Selecionar Departamento</option>
-                            <option>San Martin</option>
-                            <option>La libertad</option>
-                            <option>Lima</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputEstimatedBudget">Obejeticos Generales</label>
-                        <input type="text" id="inputEstimatedBudget" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputSpentBudget">Objetivo especifico </label>
-                        <input type="text" id="inputSpentBudget" class="form-control">
-                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="inputEstimatedDuration">Donde se desarrolla</label>
+                            <select id="inputStatus" class="form-control custom-select">
+                                <option selected="" disabled="">Selecionar Departamento</option>
+                                <option>San Martin</option>
+                                <option>La libertad</option>
+                                <option>Lima</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEstimatedBudget">Objetivo general</label>
+                            <input type="text" formControlName="objetivoGeneral" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSpentBudget">Objetivo especifico </label>
+                            <input type="text" formControlName="objetivoEspecifico" class="form-control">
+                        </div>
 
+                    </div>
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.card-body -->
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
-        </div>
-      
 
-    </div>
+
+        </div>
+
+    </form>
     <div class="row">
         <div class="col-12">
-            <a href="#" class="btn btn-secondary ml-2">Cancel</a>
-            <input type="submit" value="Guardar" class="btn btn-secondary float-right ml-2">
+            <button type="button" *ngIf="title === 'Guardar'" class="btn btn-secondary ml-2" (click)="save(formGroup.value)">Guardar</button>
+            <button type="button" *ngIf="title === 'Modificar'" class="btn btn-secondary ml-2"  (click)="update(formGroup.value)">Modificar</button>
+            <button type="button" class="btn btn-secondary ml-2" (click)="activeModal.dismiss('cancel click')">Cancelar</button>
         </div>
     </div>
     <br>

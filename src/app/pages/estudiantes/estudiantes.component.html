@@ -20,16 +20,16 @@
             <div class="row">
                 <div class="col-md-3">
                   <div class="form-group">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Facultad</option>
-                      <option>Alaska</option>
-                      <option>California</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                    <label for="inputEstimatedDuration">Seleccionar Facultad</label>
+                    <select class="form-control" formControlName="idFacultad" >
+                        <h3 class="card-title">Elegir Proyecto</h3>
+                        
+                        <option *ngFor="let facultad of facultades" >
+                            {{facultad.abreviacion}}
+                        </option>
                     </select>
                   </div>
+
 
                   <!-- /.form-group -->
                 </div>
@@ -37,14 +37,13 @@
                 <div class="col-md-3">
                   <!-- /.form-group -->
                   <div class="form-group">
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Carrera</option>
-                      <option>Alaska</option>
-                      <option disabled="disabled">California (disabled)</option>
-                      <option>Delaware</option>
-                      <option>Tennessee</option>
-                      <option>Texas</option>
-                      <option>Washington</option>
+                    <label for="inputEstimatedDuration">Seleccionar Carrera</label>
+                    <select class="form-control" formControlName="idCarrera" >
+                        <h3 class="card-title">Elegir Proyecto</h3>
+                        
+                        <option *ngFor="let carrera of carreras" >
+                            {{carrera.nombre}}
+                        </option>
                     </select>
                   </div>
                   <!-- /.form-group -->
@@ -53,23 +52,37 @@
                 <div class="col-md-3">
                     <!-- /.form-group -->
                     <div class="form-group">
-                      <select class="form-control select2" style="width: 100%;">
-                        <option selected="selected">Ciclo y Grupo</option>
-                        <option>Alaska</option>
-                        <option disabled="disabled">California (disabled)</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                      </select>
-                    </div>
+                        <label for="inputEstimatedDuration">Seleccionar Ciclo</label>
+                        <select class="form-control" formControlName="idCiclo" >
+                            <h3 class="card-title">Elegir Proyecto</h3>
+                            
+                            <option *ngFor="let ciclo of ciclos" >
+                                {{ciclo.ciclo}}
+                            </option>
+                        </select>
+                      </div>
+                    <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-3">
+                    <!-- /.form-group -->
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar Grupo</label>
+                        <select class="form-control" formControlName="idCiclo" >
+                            <h3 class="card-title">Elegir Proyecto</h3>
+                            
+                            <option *ngFor="let ciclo of ciclos" >
+                                {{ciclo.grupo}}
+                            </option>
+                        </select>
+                      </div>
+                      <button type="submit" class="btn btn-secondary float-right">Buscar</button>
+
                     <!-- /.form-group -->
                   </div>
                 <!-- /.col -->
 
-                <div class="col-md-2 ml-5">
+                <div>
                     <!-- /.form-group -->
-                      <button type="submit" class="btn btn-secondary">Seleccionar</button>
 
                     <!-- /.form-group -->
                   </div>
@@ -97,8 +110,8 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example1" class="table table-bordered table-striped">
-                            <thead>
+                        <table id="example1" class="table table-striped projects rounded">
+                            <thead class="thead-light">
                                 <tr>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
@@ -108,12 +121,12 @@
                                     <th class="text-center">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody *ngFor="let estudiante of estudiantes">
                                 
                                 <tr>
-                                    <td>Gerald Franko</td>
-                                    <td>Sandy Coral</td>
-                                    <td>201912438</td>
+                                    <td>{{estudiante.persona.nombres}}</td>
+                                    <td>{{estudiante.persona.apellidos}}</td>
+                                    <td>{{estudiante.codigo}}</td>
                                     <td>15/06/222</td>
                                     <td>Si deseo continuar con los talleres</td>
                                     <td class="project-actions text-right">

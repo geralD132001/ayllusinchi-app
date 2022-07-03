@@ -6,38 +6,32 @@
         <div class="row">
             <div class="col-md-4">
                 <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
+                <div class="card card-widget widget-user" *ngFor="let facultad of facultades">
                     <!-- Add the bg color to the header using any of the bg-* classes -->
                     <div class="widget-user-header text-white"
                         style="background: url('../../../assets/dist/img/photo1.png') center center;">
-                        <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
-                        <h5 class="widget-user-desc text-right">Web Designer</h5>
+                        <h3 class="widget-user-username text-right">Danny Levanno</h3>
+                        <h5 class="widget-user-desc text-right">System Engineer</h5>
+                        <h5 class="widget-user-desc text-right mr-1">{{facultad.abreviacion}}</h5>
                     </div>
                     <div class="widget-user-image">
                         <img class="img-circle" src="../../../assets/dist/img/user3-128x128.jpg" alt="User Avatar">
                     </div>
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-sm-4 border-right">
+
+                            <!-- /.col -->
+                            <div class="col-sm-6 border-right">
                                 <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
+                                    <span class="description-text">{{facultad.nombre}}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
                             <!-- /.col -->
-                            <div class="col-sm-4 border-right">
+                            <div class="col-sm-6">
                                 <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
+                                    <br>
+                                    <span class="description-text">{{facultad.sede?.nombre}}</span>
                                 </div>
                                 <!-- /.description-block -->
                             </div>
@@ -48,97 +42,7 @@
                 </div>
                 <!-- /.widget-user -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header text-white"
-                        style="background: url('../../../assets/dist/img/photo1.png') center center;">
-                        <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
-                        <h5 class="widget-user-desc text-right">Web Designer</h5>
-                    </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle" src="../../../assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                </div>
-                <!-- /.widget-user -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-4">
-                <!-- Widget: user widget style 1 -->
-                <div class="card card-widget widget-user">
-                    <!-- Add the bg color to the header using any of the bg-* classes -->
-                    <div class="widget-user-header text-white"
-                        style="background: url('../../../assets/dist/img/photo1.png') center center;">
-                        <h3 class="widget-user-username text-right">Elizabeth Pierce</h3>
-                        <h5 class="widget-user-desc text-right">Web Designer</h5>
-                    </div>
-                    <div class="widget-user-image">
-                        <img class="img-circle" src="../../../assets/dist/img/user3-128x128.jpg" alt="User Avatar">
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">3,200</h5>
-                                    <span class="description-text">SALES</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4 border-right">
-                                <div class="description-block">
-                                    <h5 class="description-header">13,000</h5>
-                                    <span class="description-text">FOLLOWERS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-sm-4">
-                                <div class="description-block">
-                                    <h5 class="description-header">35</h5>
-                                    <span class="description-text">PRODUCTS</span>
-                                </div>
-                                <!-- /.description-block -->
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                </div>
-                <!-- /.widget-user -->
-            </div>
-            <!-- /.col -->
+
         </div>
         <!-- /.row -->
 
@@ -148,451 +52,129 @@
 
 <section class="content ml-2 mr-2">
 
+    <app-list-proyectos></app-list-proyectos>
     <!-- Default box -->
     <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Proyectos</h3>
+        <div class="card-header">
+            <h3 class="card-title">Programas</h3>
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-          </button>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
-      </div>
-      <div class="card-body p-0">
-        <table class="table table-striped projects">
-            <thead>
-                <tr>
-                    <th style="width: 1%">
-                        #
-                    </th>
-                    <th style="width: 20%">
-                        Project Name
-                    </th>
-                    <th style="width: 30%">
-                        Team Members
-                    </th>
-                    <th>
-                        Project Progress
-                    </th>
-                    <th style="width: 8%" class="text-center">
-                        Status
-                    </th>
-                    <th style="width: 20%">
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                        <a>
-                            AdminLTE v3
-                        </a>
-                        <br/>
-                        <small>
-                            Created 01.01.2019
-                        </small>
-                    </td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                            </li>
-                        </ul>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                            </div>
-                        </div>
-                        <small>
-                            57% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
-                </tr>
+        <div class="card-body p-0">
+            <table class="table table-striped projects">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Proyecto
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let programa of programas">
+                    <tr>
+                        <td>
+                            {{programa.idPrograma}}
+                        </td>
+                        <td>
+                            {{programa.nombre}}
+                        </td>
+                        <td>
+                            {{programa.proyecto.nombre}}
+                        </td>
 
-                <tr>
-                    <td>
-                        #
-                    </td>
-                    <td>
-                        <a>
-                            AdminLTE v3
-                        </a>
-                        <br/>
-                        <small>
-                            Created 01.01.2019
-                        </small>
-                    </td>
-                    <td>
-                        <ul class="list-inline">
-                            <li class="list-inline-item">
-                                <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                            </li>
+                    </tr>
 
-                        </ul>
-                    </td>
-                    <td class="project_progress">
-                        <div class="progress progress-sm">
-                            <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                            </div>
-                        </div>
-                        <small>
-                            57% Complete
-                        </small>
-                    </td>
-                    <td class="project-state">
-                        <span class="badge badge-success">Success</span>
-                    </td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-folder">
-                            </i>
-                            View
-                        </a>
-                        <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-      </div>
-      <!-- /.card-body -->
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
     </div>
     <!-- /.card -->
 
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Programas</h3>
-      
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body p-0">
-              <table class="table table-striped projects">
-                  <thead>
-                      <tr>
-                          <th style="width: 1%">
-                              #
-                          </th>
-                          <th style="width: 20%">
-                              Project Name
-                          </th>
-                          <th style="width: 30%">
-                              Team Members
-                          </th>
-                          <th>
-                              Project Progress
-                          </th>
-                          <th style="width: 8%" class="text-center">
-                              Status
-                          </th>
-                          <th style="width: 20%">
-                          </th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td>
-                              #
-                          </td>
-                          <td>
-                              <a>
-                                  AdminLTE v3
-                              </a>
-                              <br/>
-                              <small>
-                                  Created 01.01.2019
-                              </small>
-                          </td>
-                          <td>
-                              <ul class="list-inline">
-                                  <li class="list-inline-item">
-                                      <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                                  </li>
-                              </ul>
-                          </td>
-                          <td class="project_progress">
-                              <div class="progress progress-sm">
-                                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                                  </div>
-                              </div>
-                              <small>
-                                  57% Complete
-                              </small>
-                          </td>
-                          <td class="project-state">
-                              <span class="badge badge-success">Success</span>
-                          </td>
-                          <td class="project-actions text-right">
-                              <a class="btn btn-primary btn-sm" href="#">
-                                  <i class="fas fa-folder">
-                                  </i>
-                                  View
-                              </a>
-                              <a class="btn btn-info btn-sm" href="#">
-                                  <i class="fas fa-pencil-alt">
-                                  </i>
-                                  Edit
-                              </a>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                  <i class="fas fa-trash">
-                                  </i>
-                                  Delete
-                              </a>
-                          </td>
-                      </tr>
-      
-                      <tr>
-                          <td>
-                              #
-                          </td>
-                          <td>
-                              <a>
-                                  AdminLTE v3
-                              </a>
-                              <br/>
-                              <small>
-                                  Created 01.01.2019
-                              </small>
-                          </td>
-                          <td>
-                              <ul class="list-inline">
-                                  <li class="list-inline-item">
-                                      <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                                  </li>
-      
-                              </ul>
-                          </td>
-                          <td class="project_progress">
-                              <div class="progress progress-sm">
-                                  <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                                  </div>
-                              </div>
-                              <small>
-                                  57% Complete
-                              </small>
-                          </td>
-                          <td class="project-state">
-                              <span class="badge badge-success">Success</span>
-                          </td>
-                          <td class="project-actions text-right">
-                              <a class="btn btn-primary btn-sm" href="#">
-                                  <i class="fas fa-folder">
-                                  </i>
-                                  View
-                              </a>
-                              <a class="btn btn-info btn-sm" href="#">
-                                  <i class="fas fa-pencil-alt">
-                                  </i>
-                                  Edit
-                              </a>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                  <i class="fas fa-trash">
-                                  </i>
-                                  Delete
-                              </a>
-                          </td>
-                      </tr>
-      
-                  </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-
-              <!-- Default box -->
+    <!-- Default box -->
     <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Talleres</h3>
-  
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
+            <h3 class="card-title">Talleres</h3>
+
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
         </div>
         <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
-                      <th style="width: 20%">
-                          Project Name
-                      </th>
-                      <th style="width: 30%">
-                          Team Members
-                      </th>
-                      <th>
-                          Project Progress
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          Status
-                      </th>
-                      <th style="width: 20%">
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
-                  </tr>
-  
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              AdminLTE v3
-                          </a>
-                          <br/>
-                          <small>
-                              Created 01.01.2019
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="../../../assets/dist/img/avatar.png">
-                              </li>
-  
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Complete
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">Success</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              View
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Edit
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Delete
-                          </a>
-                      </td>
-                  </tr>
-  
-              </tbody>
-          </table>
+            <table class="table table-striped projects">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Descripción
+                        </th>
+                        <th>
+                            Programa
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th colspan="3" class="text-center">Opciones</th>
+
+                    </tr>
+                </thead>
+                <tbody *ngFor="let taller of talleres">
+                    <tr>
+                        <td>
+                            {{taller.idTaller}}
+                        </td>
+                        <td>
+                            {{taller.nombre}}
+                        </td>
+                        <td>
+                            {{taller.descripcion}}
+                        </td>
+                        <td>
+                            {{taller.programa.nombre}}
+                        </td>
+                        <td>
+                            {{taller.fechaInicio | date: 'dd/MM/yyyy'}}
+                        </td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-success  text-white"  (click)="openModal()">Nuevo</button>
+                          </td>
+                          <td class="text-center">
+                            <button type="button" class="btn text-white" style="background: #95a5a6" (click)="openModalEdit(taller)">Modificar</button>
+                          </td>
+                          <td class="text-center">
+                            <button type="button" class="btn text-white " style="background: #b33939;" (click)="onDelete(taller)">Eliminar</button>
+                          </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
+    </div>
+    <!-- /.card -->
 
-  </section>
+</section>
 <!-- /.content -->
 
 <br>

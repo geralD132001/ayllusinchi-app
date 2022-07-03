@@ -11,14 +11,16 @@
     </ul>
 
     <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto ">
 
 
-        <li class="nav-item dropdown mr-2">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Configuración </a>
-            
+        <li class="nav-item dropdown mr-5" *ngIf="autorizado">
+            <h6 id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">                <i class="fa fa-user-circle" aria-hidden="true"></i>
+
+                {{auth.usuario.username}} </h6>
+
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow bg-secondary">
-              <li><a href="#" class="dropdown-item mr-4 bg-secondary">Cerrar Sesión</a>
+              <li><a href="#" class="dropdown-item mr-4 bg-secondary" (click)="logout()">Cerrar Sesión</a>
 
               </li>
 
