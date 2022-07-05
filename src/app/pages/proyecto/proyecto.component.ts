@@ -3,6 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProyectoAddService } from '../../providers/services/proyecto-add.service';
 import { ProyectoEditService } from '../../providers/services/proyecto-edit.service';
+import { DepartamentoService } from '../../providers/services/departamento.service';
+import { ProvinciaService } from '../../providers/services/provincia.service';
+import { DistritoService } from '../../providers/services/distrito.service';
+import { ComunidadService } from '../../providers/services/comunidad.service';
 
 @Component({
   selector: 'app-proyecto',
@@ -10,6 +14,11 @@ import { ProyectoEditService } from '../../providers/services/proyecto-edit.serv
   styles: [],
 })
 export class ProyectoComponent implements OnInit {
+
+  departamentos : any[] = [];
+  provincias : any[] = [];
+  distritos : any[] = [];
+  comunidades : any[] = [];
   proyecto: any[] = [];
   @Input() item: any;
   @Input() id_proyecto: any;
@@ -17,14 +26,23 @@ export class ProyectoComponent implements OnInit {
   idProyecto: string;
   isUpdating: boolean;
   formGroup: FormGroup;
+
   constructor(
     public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
     private proyectoServiceAdd: ProyectoAddService,
-    private proyectoServiceEdit: ProyectoEditService
+    private proyectoServiceEdit: ProyectoEditService,
+    private departamentoService: DepartamentoService,
+    private provinciaService: ProvinciaService,
+    private distritoService: DistritoService,
+    private comunidadService: ComunidadService
   ) {}
 
   ngOnInit(): void {
+    this.getDepartamentos();
+    this.getProvincias();
+    this.getDistritos();
+    this.getComunidades();
     this.inicio();
     this.isUpdating = false;
     if (this.item) {
@@ -34,6 +52,34 @@ export class ProyectoComponent implements OnInit {
       this.id_proyecto = '';
     }
     console.log(this.item);
+  }
+
+  getDepartamentos(): void {
+    this.departamentoService.getAll$().subscribe(response => {
+      console.log(response);
+      this.departamentos = response.data || [];
+    });
+  }
+
+  getProvincias(): void {
+    this.provinciaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.provincias = response.data || [];
+    });
+  }
+  
+  getDistritos(): void {
+    this.distritoService.getAll$().subscribe(response => {
+      console.log(response);
+      this.distritos = response.data || [];
+    });
+  }
+
+  getComunidades(): void {
+    this.comunidadService.getAll$().subscribe(response => {
+      console.log(response);
+      this.comunidades = response.data || [];
+    });
   }
 
   private inicio(): any {

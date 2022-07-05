@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TallerService } from '../../providers/services/taller.service';
+
 
 @Component({
   selector: 'app-user-taller',
@@ -8,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserTallerComponent implements OnInit {
 
-  constructor() { }
+  talleres: any[] = [];
+
+  constructor(private tallerService: TallerService) { }
 
   ngOnInit(): void {
+    this.getTalleres();
   }
+
+  getTalleres(): void {
+    this.tallerService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.talleres = response.data || [];
+    });
+  }
+
+
+  
 
 }

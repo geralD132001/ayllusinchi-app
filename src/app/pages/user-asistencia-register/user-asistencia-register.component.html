@@ -4,165 +4,195 @@
     <div class="container-fluid">
         <div class="row">
 
-            <!-- right column -->
-            <div class="col-md-6">
-                <!-- Form Element sizes -->
-                <div class="card card-olive">
-                    <div class="card-header">
-                        <h3 class="card-title">Registro de asistencia</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Nombres:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
+            <form [formGroup]="formGroup">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- Form Element sizes -->
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title">{{title}} registro de asistencia</h3>
                         </div>
-                        <div class="form-group">
-                            <label>Apellidos:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Programa social al cual apoyo:</label>
-                            <div class="custom-control custom-checkbox mt-3">
-                                <input class="custom-control-input" type="checkbox" id="customCheckbox2"
-                                    value="option1">
-                                <label for="customCheckbox2" class="custom-control-label">FCS - Programa de
-                                    resilencia</label>
-                            </div>
-                        </div>
-
-
-                        <div class="custom-control custom-checkbox mt-3">
-                            <input class="custom-control-input" type="checkbox" id="customCheckbox3" value="option1">
-                            <label for="customCheckbox3" class="custom-control-label">FCS - Programa de
-                                resilencia</label>
-                        </div>
-                        <div class="custom-control custom-checkbox mt-3">
-                            <input class="custom-control-input" type="checkbox" id="customCheckbox4" value="option1">
-                            <label for="customCheckbox4" class="custom-control-label">FCS - Programa de biohuertos de
-                                esperanza </label>
-                        </div>
-
-                        <br>
-                        <div class="form-group">
-                            <label>Fecha :</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input type="date" class="form-control datetimepicker-input"
-                                    data-target="#reservationdate" />
-                                <div class="input-group-append" data-target="#reservationdate"
-                                    data-toggle="datetimepicker">
-                                    <div class="input-group-text"></div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Nombres:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input class="form-control form-control-lg" type="text">
                                 </div>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <label>Apellidos:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input class="form-control form-control-lg" type="text">
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label> Describir a detalle, en que parte del programa apoyo usted:</label>
-                            <textarea class="form-control" rows="3" placeholder="Escribir ..."></textarea>
-                        </div>
+                            <div class="form-group">
+                                <label>Programa social al cual apoyo:</label>
+                                <div class="custom-control custom-checkbox mt-3">
+                                    <input class="custom-control-input" type="checkbox" id="customCheckbox2"
+                                        value="option1">
+                                    <label for="customCheckbox2" class="custom-control-label">FCS - Programa de
+                                        resilencia</label>
+                                </div>
+                            </div>
 
-                        <div class="form-group">
-                            <label>Curso vinculado:</label>
-                            <select class="form-control select2bs4" style="width: 100%;">
-                                <option>Marketing Digital</option>
-                                <option>Desarrollo de aplicaciones distribuidas</option>
-                                <option>Técnicas de estudio e investigación </option>
-                                <option>Capacidades Comunicativas</option>
-              
-                            </select>
+
+                            <div class="custom-control custom-checkbox mt-3">
+                                <input class="custom-control-input" type="checkbox" id="customCheckbox3"
+                                    value="option1">
+                                <label for="customCheckbox3" class="custom-control-label">FCS - Programa de
+                                    resilencia</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mt-3">
+                                <input class="custom-control-input" type="checkbox" id="customCheckbox4"
+                                    value="option1">
+                                <label for="customCheckbox4" class="custom-control-label">FCS - Programa de biohuertos
+                                    de
+                                    esperanza </label>
+                            </div>
+
+                            <br>
+                            <div class="form-group">
+                                <label>Fecha :</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input type="date" class="form-control  datetimepicker-input"
+                                        data-target="#reservationdate" formControlName="fecha" />
+                                    <span class="form-text text-danger" *ngIf="validaForm('fecha')">Ingrese fecha</span>
+                                    <div class="input-group-append" data-target="#reservationdate"
+                                        data-toggle="datetimepicker">
+                                        <div class="input-group-text"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label> Describir a detalle, en que parte del programa apoyo usted:</label>
+                                <textarea formControlName="rptadetalle" class="form-control" rows="3"
+                                    placeholder="Escribir ..."></textarea>
+                                <span class="form-text text-danger" *ngIf="validaForm('rptadetalle')">Ingrese Respuesta
+                                    a la pregunta</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Curso vinculado:</label>
+                                <select class="form-control select2bs4" style="width: 100%;">
+                                    <option>Marketing Digital</option>
+                                    <option>Desarrollo de aplicaciones distribuidas</option>
+                                    <option>Técnicas de estudio e investigación </option>
+                                    <option>Capacidades Comunicativas</option>
+
+                                </select>
+                            </div>
                         </div>
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
+
+
+
+
+
                 </div>
-                <!-- /.card -->
+
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- Form Element sizes -->
+                    <div class="card card-secondary">
+                        <div class="card-header">
+                            <h3 class="card-title">Preguntas</h3>
+
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Docente del curso:</label>
+                                <select class="form-control select2bs4" style="width: 100%;">
+                                    <option>Juan perez</option>
+                                    <option>Marcos Ruíz</option>
+                                    <option>Carlos Grandes</option>
+                                    <option>Patrick Salazar</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>¿Se relaciono usted con alguna persona? *Describa:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input formControlName="rptaRelacion" class="form-control form-control-lg"
+                                        type="text">
+                                    <span class="form-text text-danger" *ngIf="validaForm('rptaRelacion')">Ingrese
+                                        Respuesta a la pregunta</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>¿Averiguo usted si esta persona tiene otras necesidades?:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input formControlName="rptaNecesidad" class="form-control form-control-lg"
+                                        type="text">
+                                    <span class="form-text text-danger" *ngIf="validaForm('rptaNecesidad')">Ingrese
+                                        Respuesta a la pregunta</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>¿Estaria usted interesado en regresar a este lugar para que siga
+                                    desarrollando otras actividades de apoyo a las persona que no
+                                    necesariamente tengan nota?:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input formControlName="rptaRegreso" class="form-control form-control-lg"
+                                        type="text">
+                                    <span class="form-text text-danger" *ngIf="validaForm('rptaRegreso')">Ingrese
+                                        Respuesta a la pregunta</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>¿Estaria usted interesado en poder hablar a esta persona acerca de Dios?:</label>
+                                <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                    <input formControlName="rptaInteresado" class="form-control form-control-lg"
+                                        type="text">
+                                    <span class="form-text text-danger" *ngIf="validaForm('rptaInteresado')">Ingrese
+                                        Respuesta a la pregunta</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Subir evidencia</label>
+
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile"
+                                        formControlName="evidencia">
+                                    <span class="form-text text-danger" *ngIf="validaForm('evidencia')">Subir evidencia,
+                                        necesario!</span>
+                                    <label class="custom-file-label" for="customFile"></label>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button type="button" *ngIf="title === 'Nuevo'" class="btn btn-secondary"
+                                    (click)="save(formGroup.value)">Guardar</button>
+                                <button type="button" class="btn btn-secondary"
+                                    (click)="activeModal.dismiss('cancel click')">Cancelar</button>
+                            </div>
 
 
 
+                        </div>
 
 
-            </div>
-
-            <!-- right column -->
-            <div class="col-md-6">
-                <!-- Form Element sizes -->
-                <div class="card card-olive">
-                    <div class="card-header">
-                        <h3 class="card-title">Preguntas</h3>
-
+                        <!-- /.card-body -->
                     </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Docente del curso:</label>
-                            <select class="form-control select2bs4" style="width: 100%;">
-                                <option>Juan perez</option>
-                                <option>Marcos Ruíz</option>
-                                <option>Carlos Grandes</option>
-                                <option>Patrick Salazar</option>
-            
-                            </select>
-                        </div>
+                    <!-- /.card -->
 
-                        <div class="form-group">
-                            <label>¿Se relaciono usted con alguna persona? *Describa:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>¿Averiguo usted si esta persona tiene otras necesidades?:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>¿Estaria usted interesado en regresar a este lugar para que siga 
-                                desarrollando otras actividades de apoyo a las persona que no 
-                                necesariamente tengan nota?:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>¿Estaria usted interesado en poder hablar a esta persona acerca de Dios?:</label>
-                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                <input class="form-control form-control-lg" type="text">
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Subir evidencia</label>
-
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="customFile">
-                            <label class="custom-file-label" for="customFile"></label>
-                          </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <button class="btn btn-secondary float-right mt-3">Registrar</button>
-                        </div>
-
-                    </div>
-
-                    
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
-
-
-
-
-
-            </div>
-            <!--/.col (right) -->
+                <!--/.col (right) -->
+            </form>
         </div>
         <!-- /.row -->
     </div><!-- /.container-fluid -->

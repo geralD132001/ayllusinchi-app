@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AsistenciaService } from '../../providers/services/asistencia.service';
 
 @Component({
   selector: 'app-estudiante',
@@ -8,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstudianteComponent implements OnInit {
 
-  constructor() { }
+  asistencias: any[] = [];
+  constructor(private asistenciaService: AsistenciaService) { }
 
   ngOnInit(): void {
+    this.getAsistencias();
   }
+
+  getAsistencias(): void {
+    this.asistenciaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.asistencias = response.data || [];
+    });
+  }
+
+
 
 }

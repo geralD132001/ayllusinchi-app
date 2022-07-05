@@ -26,28 +26,25 @@
                                 </div>
                                 <div id="collapseOne" class="collapse show" data-parent="#accordion">
                                     <div class="card-body">
-                                        <div class="position-relative p-2 bg-gray" style="height: 50px">
-                                            <div class="ribbon-wrapper ribbon-lg">
-                 
-                                            </div>
-               
-                                            <h3 class="text-center">FIA</h3>
-                                        </div>
+                                        <div *ngFor="let facultad of facultades">
+                                            <div class="card bg-secondary collapsed-card">
+                                                <div class="card-header">
+                                                    <h3 class="card-title">{{facultad.abreviacion}}</h3>
+                                                    <div class="card-tools">
+                                                        <button type="button" class="btn btn-tool"
+                                                            data-card-widget="collapse">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
 
-                                        <div class="position-relative p-2 bg-gray mt-2" style="height: 50px">
-                                            <div class="ribbon-wrapper ribbon-lg">
-                 
-                                            </div>
-               
-                                            <h3 class="text-center">FCS</h3>
-                                        </div>
+                                                </div>
 
-                                        <div class="position-relative p-2 bg-gray mt-2" style="height: 50px">
-                                            <div class="ribbon-wrapper ribbon-lg">
-                 
+                                                <div class="card-body" style="display: none;">
+                                                    {{facultad.nombre}}
+                                                </div>
+
                                             </div>
-               
-                                            <h3 class="text-center">FIA</h3>
+
                                         </div>
 
                                     </div>
@@ -69,17 +66,17 @@
                         </h3>
                     </div>
                     <!-- /.card-header -->
-                    <div class="card-body">
+                    <div class="card-body" *ngFor="let proyecto of proyectos">
                         <ul>
-                            <div class="position-relative p-3 bg-gray" style="height: 180px">
+                            <div class="position-relative p-3 bg-gray rounded" style="height: 180px">
                                 <div class="ribbon-wrapper ribbon-lg">
-                                    <div class="ribbon bg-success text-lg">
+                                    <div class="ribbon bg-dark text-lg">
                                         Actual
                                     </div>
                                 </div>
                                 <br>
                                 <br>
-                                <h3>Ayllu Sinchi</h3>
+                                <h3>{{proyecto.nombre}}</h3>
                             </div>
                         </ul>
                     </div>
@@ -100,15 +97,11 @@
                     <div class="card-body">
                         <ul>
                             <div class="alert alert-gray bg-gray alert-dismissible">
-                                <h5><i class="icon fas fa-check"></i> Aylllu Sinchi</h5>
                                 <br>
 
-                                <div class="callout callout-success">
-                                    <h5>I am a danger callout!</h5>
+                                <div class="callout callout-black" *ngFor="let programa of programas">
 
-                                    <p>Semilleros de
-                                        emprendedores
-                                        de esperanza</p>
+                                    <h6 class="text-secondary">{{programa.nombre}}</h6>
                                 </div>
                                 <button type="button" class="btn btn-block btn-dark btn-lg"
                                     routerLink="/user-dashboard/talleres">Ingresar</button>

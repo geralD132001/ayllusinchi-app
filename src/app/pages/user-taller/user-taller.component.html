@@ -5,46 +5,26 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
+        <table id="example1" class="table table-bordered table-striped projects">
+            <thead class="thead-light">
                 <tr>
                     <th>Taller</th>
                     <th>Descripción</th>
                     <th>Carrera</th>
-                    <th>Tema</th>
+  
                     <th>Seleccionar fecha</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let taller of talleres">
   
                 <tr>
-                    <td>Carrera</td>
-                    <td>Internet
-                        Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td><button type="button" class="btn btn-block btn-secondary" routerLink="/user-dashboard/asistencia">08/09/2022</button></td>
+                    <td>{{taller.nombre}}</td>
+                    <td>{{taller.descripcion}}</td>
+                    <td>ANALIZANDOOO</td>
+                    <td><button type="button" class="btn btn-block btn-secondary" routerLink="/user-dashboard/asistencia" >{{taller.fechaInicio | date: 'dd/MM/yyyy'}}</button></td>
                 </tr>
-                <tr>
-                    <td>Carrera</td>
-                    <td>Internet
-                        Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td><button type="button" class="btn btn-block btn-secondary" routerLink="/user-dashboard/asistencia">08/09/2022</button></td>
-                </tr>
-                <tr>
-                    <td>Carrera</td>
-                    <td>Internet
-                        Explorer 4.0
-                    </td>
-                    <td>Win 95+</td>
-                    <td> 4</td>
-                    <td><button type="button" class="btn btn-block btn-secondary" routerLink="/user-dashboard/asistencia">08/09/2022</button></td>
-                </tr>
-             
+
+
             </tbody>
 
         </table>

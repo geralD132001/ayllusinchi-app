@@ -13,5 +13,11 @@ export const END_POINTS = {
     apiCicloList: 'http://localhost:8333/ciclo/listar',
     apiEstudianteList: 'http://localhost:8083/estudiante/listar',
     apiPersonaList: 'http://localhost:8083/persona/listar',
+    apiAsistenciaList: 'http://localhost:8901/listar',
+    apiAsistenciaAdd: 'http://localhost:8901/crear',
+    apiDepartamentoList: 'http://localhost:8008/departamento/listar',
+    apiProvinciaList: 'http://localhost:8008/provincia/listar',
+    apiDistritoList: 'http://localhost:8008/distrito/listar',
+    apiComunidadList: 'http://localhost:8008/comunidad/listar',
   };
   

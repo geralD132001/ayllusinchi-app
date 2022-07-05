@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
                         <div id="accordion">
-                            <div class="card card-info">
+                            <div class="card card-secondary">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
                                         <a class="d-block w-100" data-toggle="collapse" href="#collapseOne">
@@ -21,29 +21,21 @@
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseOne" class="collapse show" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid.
-                                        3
-                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                                        nesciunt
-                                        laborum
-                                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                        single-origin coffee
-                                        nulla
-                                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                        anderson cred
-                                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                                        occaecat craft
-                                        beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
-                                        them accusamus
-                                        labore sustainable VHS.
+                                <div id="collapseOne" class="collapse" data-parent="#accordion" *ngFor="let facultad of facultades">
+                                    
+                                    <div  class="info-box">
+                                        <span class="info-box-icon bg-secondary"><i class="fa fa-cube"></i></span>
+                                        <div class="info-box-content">
+                                        <span class="info-box-text"> {{facultad.abreviacion}}</span>
+                                        <span class="info-box-number">{{facultad.nombre}}</span>
                                     </div>
-                                </div>
+   
+                                    </div>
+                                    
+                                    </div>
+      
                             </div>
-                            <div class="card card-primary">
+                            <div class="card card-secondary">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
                                         <a class="d-block w-100" data-toggle="collapse" href="#collapseTwo">
@@ -52,29 +44,13 @@
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid.
-                                        3
-                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                                        nesciunt
-                                        laborum
-                                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                        single-origin coffee
-                                        nulla
-                                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                        anderson cred
-                                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                                        occaecat craft
-                                        beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
-                                        them accusamus
-                                        labore sustainable VHS.
+                                    <div class="card-body" *ngFor="let proyecto of proyectos">
+                                        {{proyecto.resenia}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="card card-danger">
-                                <div class="card-header">
+                            <div class="card card-secondary">
+                                <div class="card-header" *ngFor="let proyecto of proyectos">
                                     <h4 class="card-title w-100">
                                         <a class="d-block w-100" data-toggle="collapse" href="#collapsDo">
                                             Objetivo General
@@ -82,54 +58,22 @@
                                     </h4>
                                 </div>
                                 <div id="collapsDo" class="collapse" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid.
-                                        3
-                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                                        nesciunt
-                                        laborum
-                                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                        single-origin coffee
-                                        nulla
-                                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                        anderson cred
-                                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                                        occaecat craft
-                                        beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
-                                        them accusamus
-                                        labore sustainable VHS.
+                                    <div class="card-body" *ngFor="let proyecto of proyectos">
+                                        {{proyecto.objetivoGeneral}}
                                     </div>
                                 </div>
                             </div>
-                            <div class="card card-success">
+                            <div class="card card-secondary">
                                 <div class="card-header">
                                     <h4 class="card-title w-100">
                                         <a class="d-block w-100" data-toggle="collapse" href="#collapseThree">
-                                            Obejetivos especificos
+                                            Obejetivo especifico
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                    <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid.
-                                        3
-                                        wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-                                        nesciunt
-                                        laborum
-                                        eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid
-                                        single-origin coffee
-                                        nulla
-                                        assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                                        anderson cred
-                                        nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                                        occaecat craft
-                                        beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
-                                        them accusamus
-                                        labore sustainable VHS.
+                                    <div class="card-body" *ngFor="let proyecto of proyectos">
+                                        {{proyecto.objetivoEspecifico}}
                                     </div>
                                 </div>
                             </div>
@@ -143,17 +87,18 @@
 
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" *ngFor="let proyecto of proyectos">
                         <h3 class="card-title">
                             <i class="fas fa-text-width"></i>
-                            Proyecto Ayllu Sinchi
+                            Proyecto {{proyecto.nombre}}
                         </h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body clearfix">
                         <blockquote class="quote-secondary">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            <h5>Este proyecto se desarrolla en la comunidad Quinta Elena.</h5>
+                            <br>
+                            <h6 class="text-dark"> <i class="fas fa-arrow-down"></i> La ubicación es la siguiente</h6>
                         </blockquote>
                         <button type="button" class="btn btn-block btn-dark btn-lg py-2" routerLink="/user-dashboard/programas">Ingresar</button>
 

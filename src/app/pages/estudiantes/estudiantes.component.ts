@@ -3,6 +3,7 @@ import { FacultadService } from '../../providers/services/facultad.service';
 import { CarreraService } from '../../providers/services/carrera.service';
 import { CicloService } from '../../providers/services/ciclo.service';
 import { EstudianteService } from '../../providers/services/estudiante.service';
+import { AsistenciaService } from '../../providers/services/asistencia.service';
 
 
 @Component({
@@ -17,17 +18,21 @@ export class EstudiantesComponent implements OnInit {
   carreras: any[] = [];
   ciclos: any[] = [];
   estudiantes: any[] = [];
+  asistencias: any[] = [];
 
   constructor(private facultadService: FacultadService,
     private carreraService: CarreraService,
     private cicloService: CicloService,
-    private estudianteService: EstudianteService) { }
+    private estudianteService: EstudianteService,
+    private asistenciaService: AsistenciaService) { }
+
 
   ngOnInit(): void {
     this.getFacultades();
     this.getCarreras();
     this.getCiclos();
     this.getEstudiantes();
+    this.getAsistencias();
   }
 
   getFacultades(): void {
@@ -57,6 +62,14 @@ export class EstudiantesComponent implements OnInit {
       this.estudiantes = response.data || [];
     });
   }
+
+  getAsistencias(): void {
+    this.asistenciaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.asistencias = response.data || [];
+    });
+  }
+
 
 
 }
