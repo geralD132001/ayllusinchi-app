@@ -15,16 +15,13 @@
                     <th>Seleccionar fecha</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let taller of talleres">
-  
+            <tbody>
                 <tr>
                     <td>{{taller.nombre}}</td>
                     <td>{{taller.descripcion}}</td>
                     <td>ANALIZANDOOO</td>
-                    <td><button type="button" class="btn btn-block btn-secondary" routerLink="/user-dashboard/asistencia" >{{taller.fechaInicio | date: 'dd/MM/yyyy'}}</button></td>
+                    <td><button type="button" class="btn btn-block btn-secondary" [routerLink]="['/user-dashboard/asistencia/ver', taller.idTaller]">{{taller.fechaInicio | date: 'dd/MM/yyyy'}}</button></td>
                 </tr>
-
-
             </tbody>
 
         </table>

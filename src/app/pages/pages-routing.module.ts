@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'programa-taller', component: TallerComponent },
       { path: 'asistencia/estudiantes', component: EstudiantesComponent },
       { path: 'asistencia/personas', component: PersonasComponent },
-      { path: 'asistencia/estudiante/ver/:id', component: EstudianteComponent },
+      { path: 'asistencia/estudiante/ver/:id_asistencia', component: EstudianteComponent },
     ],
   },
 
@@ -38,9 +38,8 @@ const routes: Routes = [
     children: [
       { path: '', component: UserDashboardComponent },
       { path: 'programas', component: UserProgramaComponent },
-      { path: 'talleres', component: UserTallerComponent },
-      { path: 'asistencia', component: UserAsistenciaComponent },
-      { path: 'asistencia/ver/:id', component: UserAsistenciaComponent },
+      { path: 'talleres/ver/:id_taller', component: UserTallerComponent },
+      { path: 'asistencia/ver/:id_taller', component: UserAsistenciaComponent },
       { path: 'registrar-asistencia', component: UserAsistenciaRegisterComponent },
       { path: 'registrar-asistencia/personas', component: UserAsistenciaRegisterPersonasComponent },
       { path: 'sobre-nosotros', component: UserSobreNosotorosComponent },

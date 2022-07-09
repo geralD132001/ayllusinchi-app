@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AsistenciaGetByIdService } from '../../providers/services/asistencia-getById.service';
+import { AsistenciaGetIdService } from '../../providers/services/asistencia-getById.service';
 import { Asistencia } from './asistencia';
 import Swal from 'sweetalert2';
 import { AsistenciaUploadService } from '../../providers/services/asistencia-upload.service';
@@ -23,7 +23,7 @@ export class DetalleAsistenciaComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private asistenciaByIdService: AsistenciaGetByIdService,
+    private asistenciaByIdService: AsistenciaGetIdService,
     private asistenciaUploadService: AsistenciaUploadService,
     private sanitizer: DomSanitizer,
     private activeModal: NgbModal

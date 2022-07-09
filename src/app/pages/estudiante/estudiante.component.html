@@ -56,7 +56,7 @@
                             <div class="info-box bg-light">
                                 <div class="info-box-content">
                                     <span class="info-box-text text-center text-dark">Fecha en que apoyo</span>
-                                    <span class="info-box-number text-center text-muted mb-0">20</span>
+                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.fecha | date: 'dd/MM/yyyy'}}</span>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                                     Describir a detalle, en que parte del programa apoyo usted:
                                 </p>
 
-                                <h6><i class="fas fa-reply mt-2"></i> Participe en todo el proyecto</h6>
+                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptadetalle}}</h6>
                             </div>
 
                             <div class="post">
@@ -106,7 +106,7 @@
                                     ¿Se relaciono usted con alguna persona? *Describa
                                 </p>
 
-                                <h6><i class="fas fa-reply mt-2"></i> Jose Bustamante Romero</h6>
+                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRelacion}}</h6>
                             </div>
                             <div class="post">
 
@@ -116,7 +116,7 @@
                                     ¿Averiguo usted si esta persona tiene otras necesidades?
                                 </p>
 
-                                <h6><i class="fas fa-reply mt-2"></i> Jose Bustamante Romero</h6>
+                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaNecesidad}}</h6>
                             </div>
 
                             <div class="post">
@@ -127,7 +127,7 @@
                                     ¿Estaria usted interesado en regresar a este lugar para que siga desarrollando otras actividades de apoyo a las persona que no necesariamente tengan nota?
                                 </p>
 
-                                <h6><i class="fas fa-reply mt-2"></i> Jose Bustamante Romero</h6>
+                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRegreso}}</h6>
                             </div>
 
                             <div class="post">
@@ -138,13 +138,13 @@
                                     ¿Estaria usted interesado en poder hablar a esta persona acerca de Dios?
                                 </p>
 
-                                <h6><i class="fas fa-reply mt-2"></i> Jose Bustamante Romero</h6>
+                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaInteresado}}</h6>
                             </div>
 
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2" *ngFor="let asistencia of asistencias">
+                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                     <h5 class="text-secondary"><i class="fas fa-arrow-down"></i> Programa social que apoyo : </h5>
                     <h2 class="text-muted mt-2"><i class="fa fa-envelope-open" aria-hidden="true"></i>
                         Emprededorismo</h2>

@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class AsistenciaGetByIdService {
+export class AsistenciaGetIdService {
   private urlEndPoint: string = 'http://localhost:8901/ver';
 
   constructor(private http: HttpClient) {}

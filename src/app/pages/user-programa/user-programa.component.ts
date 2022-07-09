@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProgramaService } from '../../providers/services/programa.service';
 import { ProyectoService } from '../../providers/services/proyecto.service';
 import { FacultadService } from '../../providers/services/facultad.service';
+import { TallerService } from '../../providers/services/taller.service';
 
 @Component({
   selector: 'app-user-programa',
@@ -14,13 +15,18 @@ export class UserProgramaComponent implements OnInit {
   proyectos: any[] = [];
   programas: any[] = [];
 
+  talleres: any[] = [];
+
+
   constructor(
     private facultadService: FacultadService,
     private proyectoService: ProyectoService,
-    private programaService: ProgramaService
+    private programaService: ProgramaService,
+    private tallerService: TallerService
   ) {}
 
   ngOnInit(): void {
+    this.getTalleres();
     this.getFacultades();
     this.getProyetos();
     this.getProgramas();
@@ -30,6 +36,13 @@ export class UserProgramaComponent implements OnInit {
     this.facultadService.getAll$().subscribe((response) => {
       console.log(response);
       this.facultades = response.data || [];
+    });
+  }
+
+  getTalleres(): void {
+    this.tallerService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.talleres = response.data || [];
     });
   }
 

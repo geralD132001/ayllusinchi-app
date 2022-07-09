@@ -5,6 +5,8 @@ import { UserAsistenciaRegisterComponent } from '../user-asistencia-register/use
 import { TallerService } from '../../providers/services/taller.service';
 import { UserAsistenciaRegisterPersonasComponent } from '../user-asistencia-register-personas/user-asistencia-register-personas.component';
 import { AsistenciaService } from '../../providers/services/asistencia.service';
+import { ActivatedRoute } from '@angular/router';
+import { TallerGetByIdService } from '../../providers/services/taller-getById.service';
 
 @Component({
   selector: 'app-user-asistencia',
@@ -14,14 +16,31 @@ import { AsistenciaService } from '../../providers/services/asistencia.service';
 })
 export class UserAsistenciaComponent implements OnInit {
 
+  idTaller: any = this.activatedRoute.snapshot.paramMap.get('id_taller');
+  taller: any;
   talleres: any[] = [];
   asistencias: any[] = [];
 
-  constructor(private modalService: NgbModal, private tallerService: TallerService, private asistenciaService: AsistenciaService) { }
+  constructor(private tallerServiceById: TallerGetByIdService, private activatedRoute: ActivatedRoute, private modalService: NgbModal, private tallerService: TallerService, private asistenciaService: AsistenciaService) { }
 
   ngOnInit(): void {
+    this.getTaller();
     this.getTalleres();
     this.getAsistencias();
+  }
+
+  getTaller(): void {
+    this.tallerServiceById.getById$(this.idTaller).subscribe(response => {
+      console.log(response);
+      this.taller = response.data || [];
+    });
+  }
+  
+  getTalleres(): void {
+    this.tallerService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.talleres = response.data || [];
+    });
   }
 
   getAsistencias(): void {
@@ -73,12 +92,6 @@ export class UserAsistenciaComponent implements OnInit {
         this.getTalleres();
       }
     }).catch(res => {
-    });
-  }
-  getTalleres(): void {
-    this.tallerService.getAll$().subscribe((response) => {
-      console.log(response);
-      this.talleres = response.data || [];
     });
   }
 

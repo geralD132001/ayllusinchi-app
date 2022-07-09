@@ -11,7 +11,7 @@
     <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-secondary">
-            <div class="inner" *ngFor="let taller of talleres">
+            <div class="inner" >
                 <br>
                 <h4 class="text-center">{{taller.nombre}}</h4>
                 <br>
@@ -29,7 +29,7 @@
 
     <div class="col-lg-3 col-6">
         <!-- small box -->
-        <div class="small-box bg-secondary" *ngFor="let asistencia of asistencias">
+        <div class="small-box bg-secondary" >
             <div class="inner">
                 <br>
                 <h4 class="text-center">Registrar asistencia</h4>
@@ -38,7 +38,7 @@
             <div class="icon">
                 <i class="ion ion-person-add"></i>
             </div>
-            <a class="small-box-footer">Ir <i class="fas fa-arrow-circle-right" (click)="openModal()" [routerLink]="['/user-dashboard/asistencia/ver', asistencia.idAsistencia]"></i></a>
+            <a class="small-box-footer">Ir <i class="fas fa-arrow-circle-right" (click)="openModal()" ></i></a>
         </div>
     </div>
 

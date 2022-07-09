@@ -99,12 +99,16 @@
                             <div class="alert alert-gray bg-gray alert-dismissible">
                                 <br>
 
-                                <div class="callout callout-black" *ngFor="let programa of programas">
+                                <div class="callout callout-black" *ngFor="let taller of talleres">
 
-                                    <h6 class="text-secondary">{{programa.nombre}}</h6>
+                                    <h6 class="text-secondary">{{taller.programa.nombre}}</h6>
+                                    <button type="button" class="btn btn-block btn-secondary btn-lg mt-2"
+                                    [routerLink]="['/user-dashboard/talleres/ver', taller.idTaller]">Ingresar</button>
+
                                 </div>
-                                <button type="button" class="btn btn-block btn-dark btn-lg"
-                                    routerLink="/user-dashboard/talleres">Ingresar</button>
+
+                                
+                          
                             </div>
                         </ul>
                     </div>

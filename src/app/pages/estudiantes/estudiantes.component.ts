@@ -9,8 +9,7 @@ import { AsistenciaService } from '../../providers/services/asistencia.service';
 @Component({
   selector: 'app-estudiantes',
   templateUrl: './estudiantes.component.html',
-  styles: [
-  ]
+  styleUrls: ['./estudiantes.component.css']
 })
 export class EstudiantesComponent implements OnInit {
 
