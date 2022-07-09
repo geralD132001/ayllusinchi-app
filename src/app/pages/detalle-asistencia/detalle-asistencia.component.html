@@ -1,0 +1,42 @@
+<label>Subir evidencia</label>
+<div class="input-group mb-3">
+    <div class="custom-file">
+        <input (change)="capturarFile($event)" type="file" class="custom-file-input" id="inputGroupFile04"
+            aria-describedby="inputGroupFileAddon04">
+        <label class="custom-file-label" for="inputGroupFile04">Seleccionar foto</label>
+    </div>
+    <div class="input-group-append">
+        <button (click)="subirFoto()" class="btn btn-outline-secondary" type="button"
+            id="inputGroupFileAddon04">Subir</button>
+    </div>
+</div>
+
+<div *ngIf="progreso > 0" class="progress" style="height: 40px;">
+    <div class="progress-bar progress-bar-striped" role="progressbar" [ngStyle]="{width:progreso+'%'}"
+        attr.aria-valuenow="{{progreso}}" aria-valuemin="0" aria-valuemax="100">
+        {{progreso}}%
+    </div>
+</div>
+
+<div class="col-sm">
+    <img *ngIf="asistencia?.evidencia" src="http://localhost:8901/uploads/img/{{asistencia.evidencia}}"
+        alt="{{asistencia.evidencia}}" class="img-thumbnail rounded">
+</div>
+<div *ngIf="previsualizacion">
+    <img width="500" [src]="previsualizacion" alt="">
+</div>
+
+
+
+<!-- 
+<div>
+    <input (change)="capturarFile($event)" type="file">
+</div>
+
+<div>
+    <button type="button" (click)="subirArchivo()">Subir archivo</button>
+</div>
+
+<div *ngIf="previsualizacion">
+    <img width="300" [src]="previsualizacion" alt="">
+</div>-->

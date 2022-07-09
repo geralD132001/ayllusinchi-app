@@ -39,7 +39,7 @@ export class UserAsistenciaRegisterComponent implements OnInit {
   private inicio(): any {
     const controls = {
       fecha: ['', [Validators.required]],
-      evidencia: ['', [Validators.required]],
+      evidencia: [''],
       rptadetalle: ['', [Validators.required]],
       rptaRelacion: ['', [Validators.required]],
       rptaNecesidad: ['', [Validators.required]],

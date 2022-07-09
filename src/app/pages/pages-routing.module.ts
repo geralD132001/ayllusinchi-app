@@ -16,6 +16,7 @@ import { UserAsistenciaRegisterComponent } from './user-asistencia-register/user
 import { UserAsistenciaRegisterPersonasComponent } from './user-asistencia-register-personas/user-asistencia-register-personas.component';
 import { UserSobreNosotorosComponent } from './user-sobre-nosotoros/user-sobre-nosotoros.component';
 import { UserContactenosComponent } from './user-contactenos/user-contactenos.component';
+import { DetalleAsistenciaComponent } from './detalle-asistencia/detalle-asistencia.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
       { path: 'programa-taller', component: TallerComponent },
       { path: 'asistencia/estudiantes', component: EstudiantesComponent },
       { path: 'asistencia/personas', component: PersonasComponent },
-      { path: 'asistencia/estudiante/ver', component: EstudianteComponent },
+      { path: 'asistencia/estudiante/ver/:id', component: EstudianteComponent },
     ],
   },
 
@@ -39,6 +40,7 @@ const routes: Routes = [
       { path: 'programas', component: UserProgramaComponent },
       { path: 'talleres', component: UserTallerComponent },
       { path: 'asistencia', component: UserAsistenciaComponent },
+      { path: 'asistencia/ver/:id', component: UserAsistenciaComponent },
       { path: 'registrar-asistencia', component: UserAsistenciaRegisterComponent },
       { path: 'registrar-asistencia/personas', component: UserAsistenciaRegisterPersonasComponent },
       { path: 'sobre-nosotros', component: UserSobreNosotorosComponent },

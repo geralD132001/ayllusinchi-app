@@ -121,16 +121,23 @@
                                     <th class="text-center">Opciones</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let estudiante of estudiantes; let asistencia of asistencias">
+                            <tbody *ngFor="let asistencia of asistencias">
                                 
                                 <tr>
-                                    <td>{{estudiante.persona.nombres}}</td>
-                                    <td>{{estudiante.persona.apellidos}}</td>
-                                    <td>{{estudiante?.codigo}}</td>
+                                    <td ><img *ngIf="asistencia?.evidencia"
+                                        src="http://localhost:8901/uploads/img/{{asistencia.evidencia}}" alt="{{asistencia.evidencia}}" class="img-thumbnail rounded"
+                                        style="width:64px; cursor: pointer;">
+                            
+                                        <img  *ngIf="!asistencia?.evidencia"
+                                          src="http://localhost:8901/images/no-usuario.png" alt="Sin foto" class="img-thumbnail rounded"
+                                          style="width:64px; cursor: pointer;">
+                                        </td>
+                                    <td>sdsd</td>
+                                    <td>sdsd</td>
                                     <td>{{asistencia?.rptadetalle}}</td>
                                     <td>{{asistencia?.rptaRelacion}}</td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-secondary btn-sm mr-4" routerLink="/admin-dashboard/asistencia/estudiante/ver">
+                                        <a class="btn btn-secondary btn-sm mr-4"  [routerLink]="['/admin-dashboard/asistencia/estudiante/ver', asistencia.idAsistencia]">
                                             <i class="fas fa-folder">
                                             </i>
                                             Ver reporte

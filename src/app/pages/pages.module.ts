@@ -20,6 +20,7 @@ import { UserContactenosComponent } from './user-contactenos/user-contactenos.co
 import { FormProyectosComponent } from './proyecto/form-proyectos/form-proyectos.component';
 import { ListProyectosComponent } from './list-proyectos/list-proyectos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetalleAsistenciaComponent } from './detalle-asistencia/detalle-asistencia.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserSobreNosotorosComponent,
     UserContactenosComponent,
     FormProyectosComponent,
-    ListProyectosComponent
+    ListProyectosComponent,
+    DetalleAsistenciaComponent
   ],
   imports: [
     CommonModule,

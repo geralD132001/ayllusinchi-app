@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { UserAsistenciaRegisterComponent } from '../user-asistencia-register/user-asistencia-register.component';
 import { TallerService } from '../../providers/services/taller.service';
 import { UserAsistenciaRegisterPersonasComponent } from '../user-asistencia-register-personas/user-asistencia-register-personas.component';
+import { AsistenciaService } from '../../providers/services/asistencia.service';
 
 @Component({
   selector: 'app-user-asistencia',
@@ -14,12 +15,22 @@ import { UserAsistenciaRegisterPersonasComponent } from '../user-asistencia-regi
 export class UserAsistenciaComponent implements OnInit {
 
   talleres: any[] = [];
+  asistencias: any[] = [];
 
-  constructor(private modalService: NgbModal, private tallerService: TallerService) { }
+  constructor(private modalService: NgbModal, private tallerService: TallerService, private asistenciaService: AsistenciaService) { }
 
   ngOnInit(): void {
     this.getTalleres();
+    this.getAsistencias();
   }
+
+  getAsistencias(): void {
+    this.asistenciaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.asistencias = response.data || [];
+    });
+  }
+
 
   openModal(): any {
     const modal = this.modalService.open(UserAsistenciaRegisterComponent, {
