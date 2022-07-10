@@ -4,6 +4,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProgramaTallerEditService } from 'src/app/providers/services/programa-taller.edit.service';
 import { ProgramaTallerAddService } from '../../providers/services/programa-taller-add.service';
 import { ProgramaService } from '../../providers/services/programa.service';
+import { TallerService } from '../../providers/services/taller.service';
+import { CarreraService } from '../../providers/services/carrera.service';
 
 @Component({
   selector: 'app-taller',
@@ -14,6 +16,7 @@ export class TallerComponent implements OnInit {
   
   taller: any[] = [];
   programas: any[] = [];
+  carreras: any[] = [];
   @Input() item: any;
   @Input() id_taller: any;
   @Input() title: any;
@@ -25,11 +28,13 @@ export class TallerComponent implements OnInit {
     private formBuilder: FormBuilder,
     private tallerServiceAdd: ProgramaTallerAddService,
     private tallerServieEdit: ProgramaTallerEditService,
-    private programaService: ProgramaService
+    private programaService: ProgramaService,
+    private carreraService: CarreraService
   ) {}
 
   ngOnInit(): void {
     this.getProgramas();
+    this.getCarreras();
     this.inicio();
     this.isUpdating = false;
     if (this.item) {
@@ -47,12 +52,20 @@ export class TallerComponent implements OnInit {
     });
   }
 
+  getCarreras(): void {
+    this.carreraService.getAll$().subscribe((response) => {
+      this.carreras = response.data || [];
+    });
+  }
+
+
   private inicio(): any {
     const controls = {
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       fechaInicio: [''],
       idPrograma: [''],
+      idCarrera: [''],
     };
     this.formGroup = this.formBuilder.group(controls);
   }
@@ -69,6 +82,9 @@ export class TallerComponent implements OnInit {
       fechaInicio: name.fechaInicio,
       programa: {
         idPrograma: name.idPrograma,
+      },
+      carrera: {
+        idCarrera: name.idCarrera,
       },
     };
 
@@ -98,6 +114,9 @@ export class TallerComponent implements OnInit {
       programa: {
         idPrograma: name.idPrograma,
       },
+      carrera: {
+        idCarrera: name.idCarrera,
+      },
     };
 
     this.tallerServieEdit.update$(this.idTaller, save).subscribe(
@@ -121,6 +140,7 @@ export class TallerComponent implements OnInit {
       descripcion: data.descripcion,
       fechaInicio: data.fechaInicio,
       idPrograma: data.idPrograma,
+      idCarrera: data.idCarrera,
     });
   }
 

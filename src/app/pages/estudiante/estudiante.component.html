@@ -40,7 +40,7 @@
                             <div class="info-box bg-light">
                                 <div class="info-box-content">
                                     <span class="info-box-text text-center text-dark">Estudiante</span>
-                                    <span class="info-box-number text-center text-muted mb-0">2300</span>
+                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.persona.nombres}}</span>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                             <div class="info-box bg-light">
                                 <div class="info-box-content">
                                     <span class="info-box-text text-center text-dark">Código</span>
-                                    <span class="info-box-number text-center text-muted mb-0">2000</span>
+                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.codigo}}</span>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                 <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
                     <h5 class="text-secondary"><i class="fas fa-arrow-down"></i> Programa social que apoyo : </h5>
                     <h2 class="text-muted mt-2"><i class="fa fa-envelope-open" aria-hidden="true"></i>
-                        Emprededorismo</h2>
+                        {{asistencia.taller.programa.nombre}}</h2>
 
                     <h5 class="mt-3 text-muted"><i class="fas fa-arrow-down"></i> Evidencia</h5>
                     <td ><img *ngIf="asistencia?.evidencia"

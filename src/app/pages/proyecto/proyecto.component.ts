@@ -88,6 +88,10 @@ export class ProyectoComponent implements OnInit {
       resenia: ['', [Validators.required]],
       objetivoGeneral: [''],
       objetivoEspecifico: [''],
+      idDepartamento: [''],
+      idProvincia: [''],
+      idDistrito: [''],
+      idComunidad: ['']
     };
     this.formGroup = this.formBuilder.group(controls);
   }
@@ -102,6 +106,18 @@ export class ProyectoComponent implements OnInit {
       resenia: name.resenia,
       objetivoGeneral: name.objetivoGeneral,
       objetivoEspecifico: name.objetivoEspecifico,
+      departamento: {
+        idDepartamento: name.idDepartamento
+      },
+      provincia: {
+        idProvincia: name.idProvincia
+      },
+      distrito: {
+        idDistrito: name.idDistrito
+      },
+      comunidad: {
+        idComunidad: name.idComunidad
+      }
     };
     this.proyectoServiceAdd.add$(save).subscribe(
       (response) => {
@@ -127,6 +143,18 @@ export class ProyectoComponent implements OnInit {
       resenia: name.resenia,
       objetivoGeneral: name.objetivoGeneral,
       objetivoEspecifico: name.objetivoEspecifico,
+      departamento: {
+        idDepartamento: name.idDepartamento
+      },
+      provincia: {
+        idProvincia: name.idProvincia
+      },
+      distrito: {
+        idDistrito: name.idDistrito
+      },
+      comunidad: {
+        idComunidad: name.idComunidad
+      }
     };
     this.proyectoServiceEdit.update$(this.idProyecto, save).subscribe(
       (response) => {
@@ -149,6 +177,10 @@ export class ProyectoComponent implements OnInit {
       resenia: data.resenia,
       objetivoGeneral: data.objetivoGeneral,
       objetivoEspecifico: data.objetivoEspecifico,
+      idDepartamento: data.idDepartamento,
+      idProvincia: data.idProvincia,
+      idDistrito: data.idDistrito,
+      idComunidad: data.idComunidad
     });
   }
 

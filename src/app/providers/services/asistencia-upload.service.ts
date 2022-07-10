@@ -16,25 +16,15 @@ export class AsistenciaUploadService {
 
   constructor(private http: HttpClient) {}
 
-  subirFoto(archivo: File, idAsistencia: any): Observable<Asistencia> {
+  subirFoto(archivo: File, id: any): Observable<HttpEvent<{}>> {
     let formData = new FormData();
-    formData.append('archivo', archivo);
-    formData.append('idAsistencia', idAsistencia);
-    console.log(idAsistencia);
+    formData.append("archivo", archivo);
+    formData.append("idAsistencia", id);
 
-    return this.http.post(`${this.urlEndPoint}/upload`, formData).pipe(
-      map((response: any) => response.asistencia as Asistencia),
-      catchError((e) => {
-        console.log(e.error.mensaje);
-        Swal.fire(e.error.mensaje, e.error.error, 'error');
-        return throwError(e);
-      })
-    );
+    const req = new HttpRequest('POST', `${this.urlEndPoint}/upload`, formData, {
+      reportProgress: true
+    });
 
-    //const req = new HttpRequest('POST', `${this.urlEndPoint}/upload`, formData, {
-    //  reportProgress: true
-    // });
-
-    // return this.http.request(req);
+    return this.http.request(req);
   }
 }

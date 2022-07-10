@@ -9,17 +9,18 @@
             <thead class="thead-light">
                 <tr>
                     <th>Taller</th>
+                    <th>Programa</th>
                     <th>Descripción</th>
                     <th>Carrera</th>
-  
                     <th>Seleccionar fecha</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>{{taller.nombre}}</td>
+                    <td>{{taller.programa.nombre}}</td>
                     <td>{{taller.descripcion}}</td>
-                    <td>ANALIZANDOOO</td>
+                    <td>{{taller.carrera.nombre}}</td>
                     <td><button type="button" class="btn btn-block btn-secondary" [routerLink]="['/user-dashboard/asistencia/ver', taller.idTaller]">{{taller.fechaInicio | date: 'dd/MM/yyyy'}}</button></td>
                 </tr>
             </tbody>

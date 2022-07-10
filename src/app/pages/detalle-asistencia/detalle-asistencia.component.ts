@@ -54,7 +54,7 @@ export class DetalleAsistenciaComponent implements OnInit {
     // console.log(event.target.files);
   }
 
-  subirArchivo(): any {
+  /*subirArchivo(): any {
     try {
       const formularioDeDatos = new FormData();
       this.archivos.forEach((archivo, idAsistencia: any) => {
@@ -72,6 +72,7 @@ export class DetalleAsistenciaComponent implements OnInit {
       console.log('ERROR', e);
     }
   }
+  */
 
   seleccionarFoto(event: any) {
     this.fotoSeleccionada = event.target.files[0];
@@ -86,6 +87,7 @@ export class DetalleAsistenciaComponent implements OnInit {
       this.fotoSeleccionada = null;
     }
   }
+
   extraerBase64 = async ($event: any) =>
     new Promise((resolve, reject) => {
       try {
@@ -109,30 +111,26 @@ export class DetalleAsistenciaComponent implements OnInit {
     });
 
   subirFoto() {
+    if (!this.fotoSeleccionada) {
+      Swal.fire('Error Upload: ', 'Debe seleccionar una foto', 'error');
+    } else {
+      this.asistenciaUploadService
+        .subirFoto(this.fotoSeleccionada, this.asistencia?.idAsistencia)
+        .subscribe((event) => {
+          if (event.type === HttpEventType.UploadProgress) {
+            this.progreso = Math.round((event.loaded / event.total) * 100);
+          } else if (event.type === HttpEventType.Response) {
+            let response: any = event.body;
+            this.asistencia = response.asistencia as Asistencia;
 
-    this.asistenciaUploadService.subirFoto(this.fotoSeleccionada, this.asistencia?.idAsistencia)
-    .subscribe( asistencia => {
-      this.asistencia = asistencia;
-      Swal.fire('La foto se ha subido completamente!', `La foto se ha subido con éxito: ${this.asistencia.evidencia}` ,'success');
-    })
-    /*if (!this.fotoSeleccionada) {
-        Swal.fire('Error Upload: ', 'Debe seleccionar una foto', 'error');
-      } else {
-        this.asistenciaUploadService.subirFoto(this.fotoSeleccionada, this.asistencia?.idAsistencia)
-          .subscribe(event => {
-            if (event.type === HttpEventType.UploadProgress) {
-              this.progreso = Math.round((event.loaded / event.total) * 100);
-            } else if (event.type === HttpEventType.Response) {
-              let response: any = event.body;
-              this.asistencia = response.asistencia as Asistencia;
-              
-  
-              // this.modalService.notificarUpload.emit(this.cliente);
-              Swal.fire('La foto se ha subido completamente!', response.mensaje, 'success');
-            }
-          });
-      }
+            // this.asistenciaUploadService.notificarUpload.emit(this.cliente);
+            Swal.fire(
+              'La foto se ha subido completamente!',
+              response.mensaje,
+              'success'
+            );
+          }
+        });
     }
-    */
   }
 }

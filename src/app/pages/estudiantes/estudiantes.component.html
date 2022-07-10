@@ -117,11 +117,13 @@
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Codigo Universitario</th>
+                                        <th>Número de Celular</th>
                                         <th>Programa</th>
                                         <th>Taller</th>
                                         <th>Fecha</th>
                                         <th>Evidencia</th>
                                         <th>En que parte del programa apoyo</th>
+                                        <th>Carrera Porfesional</th>
                                         <th>Curso Vincualado</th>
                                         <th>Docente Asignatura</th>
                                         <th>Se relaciono con alguna persona</th>
@@ -134,11 +136,12 @@
                                 <tbody *ngFor="let asistencia of asistencias">
 
                                     <tr>
-                                        <td>sdsd</td>
-                                        <td>sdsd</td>
-                                        <td>sdsd</td>
-                                        <td>sdsd</td>
-                                        <td>sdsd</td>
+                                        <td>{{asistencia.estudiante.persona.nombres}}</td>
+                                        <td>{{asistencia.estudiante.persona.apellidos}}</td>
+                                        <td>{{asistencia.estudiante.codigo}}</td>
+                                        <td>{{asistencia.estudiante.persona.numCelular}}</td>
+                                        <td>{{asistencia.taller.programa.nombre}}</td>
+                                        <td>{{asistencia.taller.nombre}}</td>
                                         <td>{{asistencia.fecha | date: 'dd/MM/yyyy'}}</td>
                                         <td><img *ngIf="asistencia?.evidencia"
                                                 src="http://localhost:8901/uploads/img/{{asistencia.evidencia}}"
@@ -150,14 +153,15 @@
                                                 class="img-thumbnail rounded" style="width:100px; cursor: pointer;">
                                         </td>
                                         <td>{{asistencia?.rptadetalle}}</td>
-                                        <td>CURSO</td>
-                                        <td>DOCENTE</td>
+                                        <td>{{asistencia.curso.carrera.nombre}}</td>
+                                        <td>{{asistencia.curso.curso}}</td>
+                                        <td>{{asistencia.curso.profesor}}</td>
                                         <td>{{asistencia?.rptaRelacion}}</td>
                                         <td>{{asistencia?.rptaNecesidad}}</td>
                                         <td>{{asistencia?.rptaRegreso}}</td>
                                         <td>{{asistencia?.rptaInteresado}}</td>
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-secondary btn-sm mr-4"
+                                            <a class="btn btn-secondary btn-sm"
                                                 [routerLink]="['/admin-dashboard/asistencia/estudiante/ver', asistencia.idAsistencia]">
                                                 <i class="fas fa-folder">
                                                 </i>

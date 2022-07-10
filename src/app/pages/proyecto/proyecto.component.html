@@ -72,7 +72,7 @@
 
                             <select class="form-control" formControlName="idDepartamento" >
                                 
-                                <option *ngFor="let departamento of departamentos" >
+                                <option *ngFor="let departamento of departamentos" [value]="departamento.idDepartamento">
                                     {{departamento.nombre}}
                                 </option>
                             </select>
@@ -82,9 +82,9 @@
                         <div class="form-group">
                             <label for="inputEstimatedBudget">Seleccionar Provincia</label>
 
-                            <select class="form-control" formControlName="idProvicia" >
+                            <select class="form-control" formControlName="idProvincia" >
                                 
-                                <option *ngFor="let provincia of provincias" >
+                                <option *ngFor="let provincia of provincias" [value]="provincia.idProvincia">
                                     {{provincia.nombre}}
                                 </option>
                             </select>
@@ -95,7 +95,7 @@
 
                             <select class="form-control" formControlName="idDistrito" >
                                 
-                                <option *ngFor="let distrito of distritos" >
+                                <option *ngFor="let distrito of distritos" [value]="distrito.idDistrito">
                                     {{distrito.nombre}}
                                 </option>
                             </select>
@@ -106,7 +106,7 @@
 
                             <select class="form-control" formControlName="idComunidad" >
                                 
-                                <option *ngFor="let comunidad of comunidades" >
+                                <option *ngFor="let comunidad of comunidades" [value]="comunidad.idComunidad">
                                     {{comunidad.nombre}}
                                 </option>
                             </select>

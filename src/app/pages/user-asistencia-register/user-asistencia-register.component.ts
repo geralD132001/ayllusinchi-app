@@ -2,6 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { AsistenciaAddService } from '../../providers/services/asistencia-add.service';
+import { AsistenciaService } from '../../providers/services/asistencia.service';
+import { ProgramaService } from '../../providers/services/programa.service';
+import { TallerService } from '../../providers/services/taller.service';
+import { EstudianteService } from '../../providers/services/estudiante.service';
+import { CursoService } from '../../providers/services/curso.service';
 
 @Component({
   selector: 'app-user-asistencia-register',
@@ -9,8 +14,13 @@ import { AsistenciaAddService } from '../../providers/services/asistencia-add.se
   styles: [],
 })
 export class UserAsistenciaRegisterComponent implements OnInit {
-
+  
+  programas: any[] = [];
+  talleres: any[] = [];
+  asistencias: any[] = [];
   asistencia: any[] = [];
+  estudiantes: any[] = [];
+  cursos: any[] = [];
   @Input() item: any;
   @Input() id_asistencia: any;
   @Input() title: any;
@@ -21,10 +31,20 @@ export class UserAsistenciaRegisterComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
-    private asistenciaAddService: AsistenciaAddService
+    private asistenciaAddService: AsistenciaAddService,
+    private asistenciaService: AsistenciaService,
+    private programaService: ProgramaService,
+    private tallerService: TallerService, 
+    private estudianteService: EstudianteService,
+    private cursoService: CursoService
   ) {}
 
   ngOnInit(): void {
+    this.getAsistencias();
+    this.getProgramas();
+    this.getEstudiantes()
+    this.getTalleres();
+    this.getCursos();
     this.inicio();
     this.isUpdating = false;
     if (this.item) {
@@ -36,6 +56,46 @@ export class UserAsistenciaRegisterComponent implements OnInit {
     console.log(this.item);
   }
 
+  getCursos(): void {
+    this.cursoService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.cursos = response.data || [];
+    });
+  }
+
+  
+  getEstudiantes(): void {
+    this.estudianteService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.estudiantes = response.data || [];
+    });
+  }
+
+
+  getProgramas(): void {
+    this.programaService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.programas = response.data || [];
+    });
+  }
+
+  getTalleres(): void {
+    this.tallerService.getAll$().subscribe((response) => {
+      console.log(response);
+      this.talleres = response.data || [];
+    });
+  }
+
+
+  
+  getAsistencias(): void {
+    this.asistenciaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.asistencias = response.data || [];
+    });
+  }
+
+
   private inicio(): any {
     const controls = {
       fecha: ['', [Validators.required]],
@@ -45,6 +105,9 @@ export class UserAsistenciaRegisterComponent implements OnInit {
       rptaNecesidad: ['', [Validators.required]],
       rptaRegreso: ['', [Validators.required]],
       rptaInteresado: ['', [Validators.required]],
+      idTaller: [''],
+      idEstudiante: [''],
+      idCurso: ['']
     };
     this.formGroup = this.formBuilder.group(controls);
   }
@@ -62,6 +125,15 @@ export class UserAsistenciaRegisterComponent implements OnInit {
       rptaNecesidad: name.rptaNecesidad,
       rptaRegreso: name.rptaRegreso,
       rptaInteresado: name.rptaInteresado,
+      taller: {
+        idTaller: name.idTaller
+      },
+      estudiante: {
+        idEstudiante: name.idEstudiante
+      },
+      curso: {
+        idCurso: name.idCurso
+      }
     };
     this.asistenciaAddService.add$(save).subscribe(
       (response) => {
@@ -90,6 +162,15 @@ export class UserAsistenciaRegisterComponent implements OnInit {
       rptaNecesidad: name.rptaNecesidad,
       rptaRegreso: name.rptaRegreso,
       rptaInteresado: name.rptaInteresado,
+      taller: {
+        idTaller: name.idTaller
+      },
+      estudiante: {
+        idEstudiante: name.idEstudiante
+      },
+      curso: {
+        idCurso: name.idCurso
+      }
     };
     this.asistenciaAddService.update$(this.idAsistencia, save).subscribe(
       (response) => {
@@ -115,6 +196,9 @@ export class UserAsistenciaRegisterComponent implements OnInit {
       rptaNecesidad: data.rptaNecesidad,
       rptaRegreso: data.rptaRegreso,
       rptaInteresado: data.rptaInteresado,
+      idTaller: data.idTaller,
+      idEstudiante: data.idEstudiante,
+      idCurso: data.idCurso
     });
   }
 

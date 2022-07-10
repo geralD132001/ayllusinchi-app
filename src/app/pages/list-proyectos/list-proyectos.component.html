@@ -31,6 +31,18 @@
                     <th>
                         Obejtivo Especifico
                     </th>
+                    <th>
+                        Departamento
+                    </th>
+                    <th>
+                        Provincia
+                    </th>
+                    <th>
+                        Distrito
+                    </th>
+                    <th>
+                        Comunidad
+                    </th>
                     <th colspan="3" class="text-center">Opciones</th>
                     
                 </tr>
@@ -42,6 +54,10 @@
                     <td>{{proyecto?.resenia}} </td>
                     <td>{{proyecto?.objetivoGeneral}}</td>
                     <td>{{proyecto?.objetivoEspecifico}} </td>
+                    <td>{{proyecto?.departamento.nombre}} </td>
+                    <td>{{proyecto?.provincia.nombre}} </td>
+                    <td>{{proyecto?.distrito.nombre}} </td>
+                    <td>{{proyecto?.comunidad.nombre}} </td>
                     <td class="text-center">
                         <button type="button" class="btn btn-success  text-white" (click)="openModal()">Nuevo</button>
                     </td>
@@ -55,6 +71,7 @@
 
             </tbody>
         </table>
+        
     </div>
     <!-- /.card-body -->
 </div>

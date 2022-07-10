@@ -63,37 +63,22 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Carrera</option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
+                                    <label for="inputEstimatedDuration">Asignar taller ah</label>
+                                    <select class="form-control" formControlName="idCarrera" >
+                                        <h3 class="card-title">Elegir Proyecto</h3>
+                                        
+                                        <option *ngFor="let carrera of carreras" [value]="carrera.idCarrera">
+                                            {{carrera.nombre}}
+                                        </option>
                                     </select>
                                 </div>
 
                                 <!-- /.form-group -->
                             </div>
                             <!-- /.col -->
-                            <div class="col-md-6">
-                                <!-- /.form-group -->
-                                <div class="form-group">
-                                    <select class="form-control select2" style="width: 100%;">
-                                        <option selected="selected">Ciclo y Grupo</option>
-                                        <option>Alaska</option>
-                                        <option disabled="disabled">California (disabled)</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                    </select>
-                                </div>
-                                <!-- /.form-group -->
-                            </div>
+
                             <!-- /.col -->
                         </div>
 

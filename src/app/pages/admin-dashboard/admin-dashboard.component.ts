@@ -18,6 +18,7 @@ export class AdminDashboardComponent implements OnInit {
   programas: any[] = [];
   talleres: any[] = [];
   facultades: any[] = [];
+  
 
   constructor(
     private programaService: ProgramaService,
