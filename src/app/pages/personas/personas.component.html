@@ -12,7 +12,12 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table id="example1" class="table table-striped table-bordered projects shadow-sm p-3 mb-5 bg-white rounded">
+
+                        <button (click)="exportToExcel()" class="btn btn-secondary">Exportar Excel</button>
+                        <br>
+                        <br>
+                        <div id="div1">
+                        <table id="season-tble" class="table table-striped table-bordered projects shadow-sm p-3 mb-5 bg-white rounded">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Nombres</th>
@@ -21,26 +26,36 @@
                                     <th>Fecha de nacimiento</th>
                                     <th>Sexo</th>
                                     <th>Número de celular</th>
-                                    <th>Asistencia</th>
+                                    <th>Programa</th>
+                                    <th>Taller</th>
+                                    <th>Fecha Asistencia</th>
+                                    <th>En que parte del programa apoyo</th>
+                                    <th>Estaria interesado en regresar</th>
+                                    <th>Estaria interesado en hablar la palabra de Dios</th>
                                 </tr>
                             </thead>
-                            <tbody *ngFor="let persona of personas">
+                            <tbody *ngFor="let asistencia of asistencias">
                                 
                                 <tr>
-                                    <td>{{persona.nombres}}</td>
-                                    <td>{{persona.apellidos}}</td>
-                                    <td>{{persona.dni}}</td>
-                                    <td>{{persona.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
-                                    <td>{{persona.sexo}}</td>
-                                    <td>{{persona.numCelular}}</td>
-                                    <td class="project-state">
-                                        <span class="badge badge-success">Asistió</span>
-                                    </td>
+                                    <td>{{asistencia.persona.nombres}}</td>
+                                    <td>{{asistencia.persona.apellidos}}</td>
+                                    <td>{{asistencia.persona.dni}}</td>
+                                    <td>{{asistencia.persona.fechaNacimiento | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{asistencia.persona.sexo}}</td>
+                                    <td>{{asistencia.persona.numCelular}}</td>
+                                    <td>{{asistencia.taller.programa.nombre}}</td>
+                                    <td>{{asistencia.taller.nombre}}</td>
+                                    <td>{{asistencia.taller.fechaInicio | date: 'dd/MM/yyyy'}}</td>
+                                    <td>{{asistencia.rptadetalle}}</td>
+                                    <td>{{asistencia.rptaRegreso}}</td>
+                                    <td>{{asistencia.rptaInteresado}}</td>
+                    
 
                                 </tr>
                             </tbody>
 
                         </table>
+                        </div>
                     </div>
                     <!-- /.card-body -->
                 </div>

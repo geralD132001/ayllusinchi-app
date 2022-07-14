@@ -7,6 +7,8 @@ import { ProgramaService } from '../../providers/services/programa.service';
 import { TallerService } from '../../providers/services/taller.service';
 import { EstudianteService } from '../../providers/services/estudiante.service';
 import { CursoService } from '../../providers/services/curso.service';
+import { ActivatedRoute } from '@angular/router';
+import { AsistenciaGetByIdService } from '../../providers/services/AsistenciaGetById.service';
 
 @Component({
   selector: 'app-user-asistencia-register',
@@ -14,6 +16,9 @@ import { CursoService } from '../../providers/services/curso.service';
   styles: [],
 })
 export class UserAsistenciaRegisterComponent implements OnInit {
+  
+  asistencia2: any;
+  idAsistencia2: any = this.activatedRoute.snapshot.paramMap.get('id_asistencia');
   
   programas: any[] = [];
   talleres: any[] = [];
@@ -31,16 +36,19 @@ export class UserAsistenciaRegisterComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
+    private asistenciaByIdService: AsistenciaGetByIdService,
     private asistenciaAddService: AsistenciaAddService,
     private asistenciaService: AsistenciaService,
     private programaService: ProgramaService,
     private tallerService: TallerService, 
     private estudianteService: EstudianteService,
-    private cursoService: CursoService
+    private cursoService: CursoService,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.getAsistencias();
+    this.getAsitencia();
     this.getProgramas();
     this.getEstudiantes()
     this.getTalleres();
@@ -60,6 +68,14 @@ export class UserAsistenciaRegisterComponent implements OnInit {
     this.cursoService.getAll$().subscribe((response) => {
       console.log(response);
       this.cursos = response.data || [];
+    });
+  }
+
+  
+  getAsitencia(): void {
+    this.asistenciaByIdService.getById$(this.idAsistencia).subscribe(response => {
+      console.log(response);
+      this.asistencia = response.data || [];
     });
   }
 

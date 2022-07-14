@@ -48,7 +48,8 @@ import { DetalleAsistenciaComponent } from './detalle-asistencia/detalle-asisten
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    
   ],
   exports: [
     AdminDashboardComponent,

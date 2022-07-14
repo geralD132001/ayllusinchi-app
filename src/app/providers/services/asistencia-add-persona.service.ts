@@ -4,15 +4,14 @@ import {Observable} from "rxjs";
 import {IResponse} from "../utils/response";
 import {EntityDataService} from "../utils/entity-data.service";
 import {END_POINTS} from "../utils/end-point";
-import { IAsistencia } from '../utils/response2';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AsistenciaGetById2Service extends EntityDataService<IAsistencia>{
+export class AsistenciaAddPersonaService extends EntityDataService<IResponse>{
 
   constructor(protected httpClient: HttpClient) {
-    super(httpClient, END_POINTS.apiAsistenciaById);
+    super(httpClient, END_POINTS.apiAsistenciaPersonaAdd);
   }
 
 }

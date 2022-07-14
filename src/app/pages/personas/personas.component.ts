@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaService } from '../../providers/services/persona.service';
+import { AsistenciaPersonaService } from '../../providers/services/asistencia-persona.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-personas',
@@ -11,10 +13,26 @@ export class PersonasComponent implements OnInit {
 
 
   personas: any[] = [];
-  constructor(private personaService: PersonaService) { }
+  asistencias: any[] = [];
+  constructor(private personaService: PersonaService,
+    private asistenciaPersonaService: AsistenciaPersonaService) { }
 
   ngOnInit(): void {
     this.getPersonas();
+    this.getAsistencias();
+  }
+
+
+  name = 'AylluSinchiAsistencia.xlsx';
+
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
 
   getPersonas(): void {
@@ -23,6 +41,14 @@ export class PersonasComponent implements OnInit {
       this.personas = response.data || [];
     });
   }
+
+  getAsistencias(): void {
+    this.asistenciaPersonaService.getAll$().subscribe(response => {
+      console.log(response);
+      this.asistencias = response.data || [];
+    });
+  }
+
 
 
 }

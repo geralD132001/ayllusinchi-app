@@ -1,32 +1,142 @@
 <br>
-<div class="row justify-content-center mr-3">
-    <div class="col-md-6">
+<div class="row justify-content-center">
+    <div class="col-md-10">
         <!-- Form Element sizes -->
-        <div class="card card-secondary">
-            <div class="card-header">
-                <h3 class="card-title">Registro de asistencia a personas participantes</h3>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label>DNI:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input class="form-control form-control-lg" type="text">
-                    </div>
+
+        <form [formGroup]="formGroup">
+            <div class="card card-secondary">
+                <div class="card-header">
+                    <h3 class="card-title">{{title}}Registro de asistencia a personas participantes</h3>
                 </div>
-                <div class="form-group">
-                    <label>Fecha:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input class="form-control form-control-lg" type="date">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar alguno de los nombres registrados</label>
+                        <select class="form-control" formControlName="idPersona">
+                            <h3 class="card-title">Elegir Nombres</h3>
+
+                            <option *ngFor="let persona of personas" [value]="persona.idPersona">
+                                {{persona.nombres}}
+                            </option>
+                        </select>
                     </div>
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar alguno de los apellidos registrados</label>
+                        <select class="form-control" formControlName="idPersona">
+                            <h3 class="card-title">Elegir Apellidos</h3>
+
+                            <option *ngFor="let persona of personas" [value]="persona.idPersona">
+                                {{persona.apellidos}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Dni</label>
+                        <select class="form-control" formControlName="idPersona">
+                            <h3 class="card-title">Elegir Dni</h3>
+
+                            <option *ngFor="let persona of personas" [value]="persona.idPersona">
+                                {{persona.dni}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar su número de celular</label>
+                        <select class="form-control" formControlName="idPersona">
+
+                            <option *ngFor="let persona of personas" [value]="persona.idPersona">
+                                {{persona.numCelular}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar Programa</label>
+                        <select class="form-control" formControlName="idPrograma">
+                            <h3 class="card-title">Elegir Proyecto</h3>
+
+                            <option *ngFor="let programa of programas" [value]="programa.idPrograma">
+                                {{programa.nombre}}
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="inputEstimatedDuration">Seleccionar Taller</label>
+                        <select class="form-control" formControlName="idTaller">
+                            <h3 class="card-title">Elegir Taller</h3>
+
+                            <option *ngFor="let taller of talleres" [value]="taller.idTaller">
+                                {{taller.nombre}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Fecha :</label>
+                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                            <input type="date" class="form-control  datetimepicker-input"
+                                data-target="#reservationdate" formControlName="fecha" />
+                            <span class="form-text text-danger" *ngIf="validaForm('fecha')">Ingrese fecha</span>
+                            <div class="input-group-append" data-target="#reservationdate"
+                                data-toggle="datetimepicker">
+                                <div class="input-group-text"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
 
-                <div class="mx-auto justify-content-center">
-                    <button class="btn btn-secondary d-block mx-auto py-3">Registrar Asistencia</button>
-                </div>
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Preguntas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label> Describir a detalle, que le parecio el taller:</label>
+                            <textarea formControlName="rptadetalle" class="form-control" rows="3"
+                                placeholder="Escribir ..."></textarea>
+                            <span class="form-text text-danger" *ngIf="validaForm('rptadetalle')">Ingrese Respuesta
+                                a la pregunta</span>
+                        </div>
 
+
+                        <div class="form-group">
+                            <label>¿Estaria usted interesado en regresar a este lugar para que siga
+                                desarrollando otras actividades de apoyo a las personas?</label>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input formControlName="rptaRegreso" class="form-control form-control-lg"
+                                    type="text">
+                                <span class="form-text text-danger" *ngIf="validaForm('rptaRegreso')">Ingrese
+                                    Respuesta a la pregunta</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Estaria usted interesado en poder hablar con laguien encargado acerca de Dios?</label>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input formControlName="rptaInteresado" class="form-control form-control-lg"
+                                    type="text">
+                                <span class="form-text text-danger" *ngIf="validaForm('rptaInteresado')">Ingrese
+                                    Respuesta a la pregunta</span>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" *ngIf="title === 'Nuevo'" class="btn btn-secondary"
+                                (click)="save(formGroup.value)">Guardar</button>
+                            <button type="button" class="btn btn-secondary"
+                                (click)="activeModal.dismiss('cancel click')">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
-        </div>
+        </form>
         <!-- /.card -->
 
 

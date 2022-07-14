@@ -1,171 +1,218 @@
 <!-- Content Header (Page header) -->
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="text-secondary">Reporte del Estudiante</h1>
-            </div>
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Project Detail</li>
-                </ol>
-            </div>
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
-<section class="content ml-3 mr-2">
-
-    <!-- Default box -->
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title text-secondary">Especificaciones</h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
-                    <div class="row">
-                        <div class="col-12 col-sm-4">
-                            <div class="info-box bg-light">
-                                <div class="info-box-content">
-                                    <span class="info-box-text text-center text-dark">Estudiante</span>
-                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.persona.nombres}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <div class="info-box bg-light">
-                                <div class="info-box-content">
-                                    <span class="info-box-text text-center text-dark">Código</span>
-                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.codigo}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-4">
-                            <div class="info-box bg-light">
-                                <div class="info-box-content">
-                                    <span class="info-box-text text-center text-dark">Fecha en que apoyo</span>
-                                    <span class="info-box-number text-center text-muted mb-0">{{asistencia.fecha | date: 'dd/MM/yyyy'}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-12">
-                            <h4 class="text-secondary">Preguntas Generales</h4>
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    Describir a detalle, en que parte del programa apoyo usted:
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptadetalle}}</h6>
-                            </div>
-
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    Curso vinculado:
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i> Desarrollo de aplicaciones distribuidas</h6>
-                            </div>
-
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    Docente del curso:
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i> Jose Bustamante Romero</h6>
-                            </div>
-
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    ¿Se relaciono usted con alguna persona? *Describa
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRelacion}}</h6>
-                            </div>
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    ¿Averiguo usted si esta persona tiene otras necesidades?
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaNecesidad}}</h6>
-                            </div>
-
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    ¿Estaria usted interesado en regresar a este lugar para que siga desarrollando otras actividades de apoyo a las persona que no necesariamente tengan nota?
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRegreso}}</h6>
-                            </div>
-
-                            <div class="post">
-
-                                <br>
-                                <!-- /.user-block -->
-                                <p class="text-dark">
-                                    ¿Estaria usted interesado en poder hablar a esta persona acerca de Dios?
-                                </p>
-
-                                <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaInteresado}}</h6>
-                            </div>
-
-                        </div>
-                    </div>
+<div id="htmlData">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="text-secondary">Reporte del Estudiante</h1>
                 </div>
-                <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-                    <h5 class="text-secondary"><i class="fas fa-arrow-down"></i> Programa social que apoyo : </h5>
-                    <h2 class="text-muted mt-2"><i class="fa fa-envelope-open" aria-hidden="true"></i>
-                        {{asistencia.taller.programa.nombre}}</h2>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Project Detail</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
 
-                    <h5 class="mt-3 text-muted"><i class="fas fa-arrow-down"></i> Evidencia</h5>
-                    <td ><img *ngIf="asistencia?.evidencia"
-                        src="http://localhost:8901/uploads/img/{{asistencia.evidencia}}"  alt="{{asistencia.evidencia}}" class="img-thumbnail rounded"
-                        style="width:500px; cursor: pointer;">
-            
-                        <img  *ngIf="!asistencia?.evidencia"
-                          src="http://localhost:8901/images/no-usuario.png" alt="Sin foto" class="img-thumbnail rounded"
-                          style="width:64px; cursor: pointer;">
+    <!-- Main content -->
+    <section class="content ml-3 mr-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title text-secondary">Especificaciones</h3>
+
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+                        <div class="row">
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Estudiante</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.persona.nombres}}
+                                            {{asistencia.estudiante.persona.apellidos }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Código</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.codigo}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Fecha en que apoyo</span>
+                                        <span class="info-box-number text-center text-muted mb-0">{{asistencia.fecha |
+                                            date: 'dd/MM/yyyy'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Número de celular</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.estudiante.persona.numCelular}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Programa </span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.taller.programa.nombre}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Taller</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.taller.nombre}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Carrera profesional</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.curso.carrera.nombre}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Curso vinculado</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.curso.curso}}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4">
+                                <div class="info-box bg-light">
+                                    <div class="info-box-content">
+                                        <span class="info-box-text text-center text-dark">Docente</span>
+                                        <span
+                                            class="info-box-number text-center text-muted mb-0">{{asistencia.curso.profesor}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12">
+                                <h4 class="text-secondary">Preguntas Generales</h4>
+                                <div class="post">
+
+                                    <br>
+                                    <!-- /.user-block -->
+                                    <p class="text-dark">
+                                        Describir a detalle, en que parte del programa apoyo usted:
+                                    </p>
+
+                                    <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptadetalle}}</h6>
+                                </div>
+
+
+
+                                <div class="post">
+
+                                    <br>
+                                    <!-- /.user-block -->
+                                    <p class="text-dark">
+                                        ¿Se relaciono usted con alguna persona? *Describa
+                                    </p>
+
+                                    <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRelacion}}</h6>
+                                </div>
+                                <div class="post">
+
+                                    <br>
+                                    <!-- /.user-block -->
+                                    <p class="text-dark">
+                                        ¿Averiguo usted si esta persona tiene otras necesidades?
+                                    </p>
+
+                                    <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaNecesidad}}</h6>
+                                </div>
+
+                                <div class="post">
+
+                                    <br>
+                                    <!-- /.user-block -->
+                                    <p class="text-dark">
+                                        ¿Estaria usted interesado en regresar a este lugar para que siga desarrollando
+                                        otras actividades de apoyo a las persona que no necesariamente tengan nota?
+                                    </p>
+
+                                    <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaRegreso}}</h6>
+                                </div>
+
+                                <div class="post">
+
+                                    <br>
+                                    <!-- /.user-block -->
+                                    <p class="text-dark">
+                                        ¿Estaria usted interesado en poder hablar a esta persona acerca de Dios?
+                                    </p>
+
+                                    <h6><i class="fas fa-reply mt-2"></i>{{asistencia.rptaInteresado}}</h6>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+                        <h5 class="text-secondary"><i class="fas fa-arrow-down"></i> Programa social que apoyo : </h5>
+                        <h2 class="text-muted mt-2"><i class="fa fa-envelope-open" aria-hidden="true"></i>
+                            {{asistencia.taller.programa.nombre}}</h2>
+
+                        <h5 class="mt-3 text-muted"><i class="fas fa-arrow-down"></i> Evidencia</h5>
+                        <td><img *ngIf="asistencia?.evidencia"
+                                src="http://localhost:8901/uploads/img/{{asistencia.evidencia}}"
+                                alt="{{asistencia.evidencia}}" class="img-thumbnail rounded"
+                                style="width:500px; cursor: pointer;">
+
+                            <img *ngIf="!asistencia?.evidencia" src="http://localhost:8901/images/no-usuario.png"
+                                alt="Sin foto" class="img-thumbnail rounded" style="width:64px; cursor: pointer;">
                         </td>
-                    <div class="text-center mt-5 mb-3">
-                        <a href="#" class="btn btn-secondary">Descargar PDF</a>
+                        <div class="text-center mt-5 mb-3">
+                            <a class="btn btn-secondary" (click)="savePDF()">Descargar PDF</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
-    </div>
-    <!-- /.card -->
+        <!-- /.card -->
 
-</section>
+    </section>
+</div>

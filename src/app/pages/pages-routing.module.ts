@@ -40,7 +40,7 @@ const routes: Routes = [
       { path: 'programas', component: UserProgramaComponent },
       { path: 'talleres/ver/:id_taller', component: UserTallerComponent },
       { path: 'asistencia/ver/:id_taller', component: UserAsistenciaComponent },
-      { path: 'registrar-asistencia', component: UserAsistenciaRegisterComponent },
+      { path: 'registrar-asistencia/id_asistencia', component: UserAsistenciaRegisterComponent },
       { path: 'registrar-asistencia/personas', component: UserAsistenciaRegisterPersonasComponent },
       { path: 'sobre-nosotros', component: UserSobreNosotorosComponent },
       { path: 'contactanos', component: UserContactenosComponent },

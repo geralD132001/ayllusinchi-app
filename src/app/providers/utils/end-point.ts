@@ -16,6 +16,8 @@ export const END_POINTS = {
     apiEstudianteList: 'http://localhost:8041/listar',
     apiPersonaList: 'http://localhost:8083/persona/listar',
     apiAsistenciaList: 'http://localhost:8901/listar',
+    apiAsistenciaPersonaList: 'http://localhost:8901/listar-asistencia-persona',
+    apiAsistenciaPersonaAdd: 'http://localhost:8901/crear-asistencia-persona',
     apiAsistenciaById: 'http://localhost:8901/ver',
     // apiAsistenciaUploadFile: 'http://localhost:8901/upload',
     apiAsistenciaAdd: 'http://localhost:8901/crear',

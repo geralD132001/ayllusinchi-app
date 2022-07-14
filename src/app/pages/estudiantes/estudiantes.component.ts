@@ -4,7 +4,7 @@ import { CarreraService } from '../../providers/services/carrera.service';
 import { CicloService } from '../../providers/services/ciclo.service';
 import { EstudianteService } from '../../providers/services/estudiante.service';
 import { AsistenciaService } from '../../providers/services/asistencia.service';
-
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-estudiantes',
@@ -32,6 +32,18 @@ export class EstudiantesComponent implements OnInit {
     this.getCiclos();
     this.getEstudiantes();
     this.getAsistencias();
+  }
+
+  name = 'AylluSinchiAsistencia.xlsx';
+
+  exportToExcel(): void {
+    let element = document.getElementById('season-tble');
+    const worksheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    const book: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(book, worksheet, 'Sheet1');
+
+    XLSX.writeFile(book, this.name);
   }
 
   getFacultades(): void {
