@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   login(usuario: any): Observable<any> {
-    const urlEndpoint = 'http://localhost:9100/oauth/token';
+    const urlEndpoint = 'http://20.197.229.7:9100/oauth/token';
 
     const credenciales = btoa('ayllusinchiapp' + ':' + 'code13');
 

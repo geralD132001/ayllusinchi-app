@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/23f0c027-922e-4ad3-a3cd-442f473fe568/microsoft.web/sites/subscriptions/23f0c027-922e-4ad3-a3cd-442f473fe568/resourceGroups/ayllusinchi-app_group-9f22/providers/Microsoft.Web/sites/ayllusinchi-app",
+    "appService.deploySubpath": "dist"
+}

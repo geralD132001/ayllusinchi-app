@@ -36,79 +36,63 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-header">Gestión General</li>
+               <li class="nav-header">Gestión de asistencia</li>
 
-                <li class="nav-item">
 
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-bars"></i>
-                        <p>
-                            Menu
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a routerLink="/admin-dashboard" class="nav-link">
-                                <i class="nav-icon fa fa-window-restore" ></i>
 
-                                <p>Principal</p>
-                            </a>
-                        </li>
+               <li class="nav-item">
 
-                    </ul>
-                </li>
+                   <a  routerLink="/admin-dashboard" class="nav-link">
+                       <i class="nav-icon fa fa-bars"></i>
+                       <p>
+                           Principal
+                       </p>
+                   </a>
+
+               </li>
+
 
                 <li class="nav-header">Gestión de asistencia</li>
 
 
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-check-circle"></i>
+
+                    <a  routerLink="/admin-dashboard/asistencia/estudiantes" class="nav-link">
+                        <i class="nav-icon fa fa-graduation-cap"></i>
                         <p>
-                            Asistencia de
-                            <i class="fas fa-angle-left right"></i>
+                            Estudiantes
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a routerLink="/admin-dashboard/asistencia/estudiantes" class="nav-link">
-                                <i class="fa fa-graduation-cap nav-icon"></i>
 
-                                <p>Estudiantes</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a routerLink="/admin-dashboard/asistencia/personas" class="nav-link">
-                                <i class="fa fa-users nav-icon"></i>
-                                <p>Personas</p>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
 
+
+                <li class="nav-item">
+
+                    <a routerLink="/admin-dashboard/asistencia/personas" class="nav-link">
+                        <i class="nav-icon fa fa-user"></i>
+                        <p>
+                            Personas
+                        </p>
+                    </a>
+
+                </li>
+
+
+                
+               
                 <li class="nav-header">Principal</li>
 
                 <li class="nav-item">
 
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fa fa-bars"></i>
+                    <a routerLink="/user-dashboard" class="nav-link">
+                        <i class="nav-icon fa fa-window-restore"></i>
                         <p>
-                            Menu
-                            <i class="right fas fa-angle-left"></i>
+                            Proyecto
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a routerLink="/user-dashboard" class="nav-link">
-                                <i class="nav-icon fa fa-window-restore" ></i>
 
-                                <p>Proyecto</p>
-                            </a>
-                        </li>
-
-                    </ul>
                 </li>
             </ul>
         </nav>
